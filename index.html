@@ -8,7 +8,7 @@
     <title>Pomodoro Neumorphism</title>
 </head>
 <body class="flex flex-col items-center bg-[#282828]">
-    <header>
+    <header class="flex justify-between w-full p-4">
         <h2>Pomodoro Neumorphism</h2>
         <nav>
             <button>Personalizar</button>
@@ -16,20 +16,29 @@
             <button>ES</button>
         </nav>
     </header>
-    
-    <main>
-        <section name="timer">
+    <main class="lg:flex h-full p-4">
+        <section name="timer" class="lg:w-3/5 col-span-3 flex flex-col items-center justify-center h-full">
             <div class="clock">
-                <h1 class="txt-clock">00:00:00</h1>
+                <h1 class="text-4xl">00:00:00</h1>
             </div>
-            <button class="btn-clock neumorphic-btn">
+            <button class="btn-clock my-4 px-8 ">
                 Start
             </button>
         </section>
-        <aside name="panel">
-    
+        <aside name="panel" class="lg:w-2/5 h-full lg:col-span-5">
+            <div class="flex text-xl">
+                <h2 class="px-2 pl-0">Tasks</h2>
+                <h3 class="px-2">0</h3>
+            </div>
+            <ul class="text-base">
+                <li>Browse through 150,841 free fonts for commercial use only on Creative Fabrica. Get access to our ever growing library of fonts, graphics, crafts and more. Fonts. Graphics. Crafts.</li>
+                <li>Check your app or web is working for properly with different alphabets and character sets. Create Arabic, Hindi, Chinese and more, filler text to better test your app or web.</li>
+                <li>Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.</li>
+            </ul>
         </aside>
     </main>
-    <footer></footer>
+    <footer class="p-4 fixed bottom-0 w-full text-center bg-[#606060]">
+        asdasd
+    </footer>
 </body>
 </html>
