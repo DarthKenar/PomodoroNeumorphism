@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    cursor: pointer; 
+}
+
 * {
     font-family: monospace;
     color: bisque;
@@ -14,7 +23,14 @@
 body {
     height: 100vh;
 }
-
+nav button {
+    margin-right: 0px;
+}
+nav button span {
+    @media not all and (min-width: 1024px) {
+        display: none;
+    }
+}
 .clock {
     display: flex;
     max-width: 100%;
@@ -39,16 +55,11 @@ body {
         4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-button {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font-size: 1em;
-    cursor: pointer; 
-}
-
 li {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
     padding: 10px;
     margin: 0px 10px 20px;
     border-radius: 10px;
@@ -56,14 +67,30 @@ li {
     box-shadow:  4px 4px 8px #1c1c1c,
                 -4px -4px 8px #343434;
 }
+li div{
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.5rem/* 8px */;
+    padding-right: 1rem/* 16px */;
+}
 
+.fake-textarea {
+    border: 1px solid #1c1c1c;
+    width: 100%;
+    min-height: 3rem;
+  }
+.fake-textarea:empty::before {
+    position: absolute;
+    content: "Write here...";
+  }
 button {
     border-radius: 10px;
     background: linear-gradient(145deg, #242424, #2b2b2b);
     box-shadow:  4px 4px 8px #1c1c1c,
                 -4px -4px 8px #343434;
     padding: 5px;
-    margin-top: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     transition: all 0.3s ease;
     
 }
