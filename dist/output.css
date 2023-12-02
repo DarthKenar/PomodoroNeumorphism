@@ -551,10 +551,6 @@ video {
   margin-bottom: 1rem;
 }
 
-.mt-4 {
-  margin-top: 1rem;
-}
-
 .flex {
   display: flex;
 }
@@ -597,21 +593,8 @@ video {
   padding-right: 0.5rem;
 }
 
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
 .pl-0 {
   padding-left: 0px;
-}
-
-.pt-4 {
-  padding-top: 1rem;
-}
-
-.pb-0 {
-  padding-bottom: 0px;
 }
 
 .text-center {
@@ -636,8 +619,6 @@ video {
 button {
   background: none;
   border: none;
-  padding: 0;
-  margin: 0;
   font-size: 1em;
   cursor: pointer;
 }
@@ -656,14 +637,11 @@ body {
 }
 
 nav button {
-  margin-right: 8px;
   @media not all and (min-width: 1024px) {
-    margin-right: 0px;
   }
 }
 
 nav button span {
-  margin-top: 4px;
   @media not all and (min-width: 1024px) {
     display: none;
   }
@@ -713,25 +691,11 @@ li div{
   padding-right: 1rem/* 16px */;
 }
 
-.fake-textarea {
-  border: 1px solid #1c1c1c;
-  width: 100%;
-  min-height: 3rem;
-}
-
-.fake-textarea:empty::before {
-  position: absolute;
-  content: "Write here...";
-}
-
 button {
   border-radius: 10px;
   background: linear-gradient(145deg, #242424, #2b2b2b);
   box-shadow:  4px 4px 8px #1c1c1c,
                 -4px -4px 8px #343434;
-  padding: 5px;
-  margin-top: 8px;
-  margin-bottom: 8px;
   transition: all 0.3s ease;
 }
 
@@ -752,6 +716,63 @@ footer{
   background: #282828;
   box-shadow: 4px 4px 8px #1c1c1c,
                 -4px -4px 8px #343434;
+}
+
+/* Title */
+
+header h2 {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Navigator */
+
+header nav {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* nav buttons */
+
+nav button {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* clock button */
+
+section button {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* buttons container */
+
+ul li div {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* tasks */
+
+article {
+  width: calc(100% - 60px);
+  border: 1px solid #1c1c1c;
+  min-height: 3rem;
+}
+
+article:empty::before {
+  position: absolute;
+  content: "Write here...";
+}
+
+/* switch tasks buttons */
+
+ul li div button {
+  margin: 2px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding: 4px;
 }
 
 @media (min-width: 1024px) {
