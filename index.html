@@ -6,66 +6,56 @@
     <link href="/dist/output.css" rel="stylesheet">
     <title>Pomodoro Neumorphism</title>
 </head>
-<body class="flex flex-col items-center bg-[#282828]">
-    <header class="flex justify-between w-full">
-        <h2 class="marco">Pomodoro Neumorphism</h2>
-        <nav>
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
-                <span>Personalizar</span>
-            </button>
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rotate-ccw"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
-                <span>Reiniciar sesión</span>
-            </button>
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                <span>ES</span>
-            </button>
-        </nav>
-    </header>
-    <main class="lg:flex h-full p-4 w-full">
-        <section name="timer" class="lg:w-3/5 col-span-3 flex flex-col items-center justify-center h-full">
-            <div class="clock">
-                <h1 class="text-4xl">00:00:00</h1>
-            </div>
-            <button class="btn-clock" onclick="start()">
-                Start
-            </button>
-        </section>
-        <aside name="panel" class="w-full lg:w-2/5 h-full lg:col-span-5">
-            <div class="flex text-xl marco p-4 my-4 w-full">
-                <h2 class="px-2 pl-0">Tasks</h2>
-                <h3 class="px-2">0</h3>
-            </div>
-            <ul class="text-base marco p-4 my-4">
-                <li>
-                    <div>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                        </button>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                        </button>
-                    </div>
-                    <article contenteditable></article>
-                </li>
-                <li>
-                    <div>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                        </button>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                        </button>
-                    </div>
-                    <article contenteditable class="fake-textarea"></article>
-                </li>
-            </ul>
-        </aside>
-    </main>
-    <footer class="fixed bottom-0 w-full text-center">
-        asdasd
-    </footer>
-</body>
+    <body class="flex flex-col items-center bg-[#282828]">
+        <header class="flex justify-between w-full">
+            <h2 class="marco">Pomodoro Neumorphism</h2>
+            <nav>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                    <span>Personalizar</span>
+                </button>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rotate-ccw"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                    <span>Reiniciar sesión</span>
+                </button>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    <span>ES</span>
+                </button>
+            </nav>
+        </header>
+        <main class="lg:flex h-full p-4 w-full">
+            <section name="timer" class="lg:w-3/5 col-span-3 flex flex-col items-center justify-center h-full">
+                <div class="clock">
+                    <h1 id="clockValue" class="text-4xl">10</h1>
+                </div>
+                <button class="btn-clock" onclick="start()">
+                    Start
+                </button>
+            </section>
+            <aside name="panel" class="w-full lg:w-2/5 h-full lg:col-span-5">
+                <div class="flex text-xl marco p-4 my-4 w-full">
+                    <h2 class="px-2 pl-0">Tasks</h2>
+                    <h3 class="px-2">0</h3>
+                </div>
+                <ul class="text-base marco p-4 my-4">
+                    <li>
+                        <div>
+                            <button>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                            </button>
+                            <button>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                        </div>
+                        <article contenteditable></article>
+                    </li>
+                </ul>
+            </aside>
+        </main>
+        <footer class="fixed bottom-0 w-full text-center">
+            asdasd
+        </footer>
+    </body>
+    <script src="script.js"></script>
 </html>
