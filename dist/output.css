@@ -606,6 +606,14 @@ video {
   padding-left: 0px;
 }
 
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.pb-0 {
+  padding-bottom: 0px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -648,10 +656,14 @@ body {
 }
 
 nav button {
-  margin-right: 0px;
+  margin-right: 8px;
+  @media not all and (min-width: 1024px) {
+    margin-right: 0px;
+  }
 }
 
 nav button span {
+  margin-top: 4px;
   @media not all and (min-width: 1024px) {
     display: none;
   }
