@@ -25,15 +25,18 @@
             </nav>
         </header>
         <main class="lg:flex h-full p-4 w-full">
-            <section name="timer" class="lg:w-3/5 col-span-3 flex flex-col items-center justify-center h-full">
+            <section name="timer" class="lg:w-3/5 flex flex-col items-center justify-center lg:h-full ">
                 <div class="clock">
                     <h1 id="clockValue" class="text-4xl">3</h1>
                 </div>
-                <button class="btn-clock" onclick="start()">
+                <button id="startButton" class="btn-clock">
                     Start
                 </button>
+                <button id="stopButton" class="btn-clock hidden">
+                    Stop
+                </button>
             </section>
-            <aside name="panel" class="w-full lg:w-2/5 h-full lg:col-span-5">
+            <aside name="panel" class="w-full lg:w-2/5 h-full ">
                 <div class="flex text-xl marco p-4 my-4 w-full">
                     <h2 class="px-2 pl-0">Tasks</h2>
                     <h3 class="px-2">0</h3>

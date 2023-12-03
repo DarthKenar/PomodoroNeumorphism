@@ -555,6 +555,10 @@ video {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-full {
   height: 100%;
 }
@@ -799,6 +803,20 @@ ul li div button {
   padding: 4px;
 }
 
+@media (min-width: 640px) {
+  .sm\:h-full {
+    height: 100%;
+  }
+
+  .sm\:items-center {
+    align-items: center;
+  }
+
+  .sm\:justify-center {
+    justify-content: center;
+  }
+}
+
 @media (min-width: 1024px) {
   .lg\:col-span-5 {
     grid-column: span 5 / span 5;
@@ -808,11 +826,23 @@ ul li div button {
     display: flex;
   }
 
+  .lg\:h-full {
+    height: 100%;
+  }
+
   .lg\:w-2\/5 {
     width: 40%;
   }
 
   .lg\:w-3\/5 {
     width: 60%;
+  }
+
+  .lg\:items-center {
+    align-items: center;
+  }
+
+  .lg\:justify-center {
+    justify-content: center;
   }
 }
