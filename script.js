@@ -30,8 +30,12 @@ function checkClock() {
     // checkClock se ejecuta a cada segundo
     if (parseInt(clockValueMin.textContent) < 1 && parseInt(clockValueSeg.textContent) < 1) {
         clearInterval(runningTime);
-        clockValueMin.textContent = initialValueMin
-        clockValueSeg.textContent = initialValueSeg
+        if(clockValueMin.textContent.length == 1){
+            clockValueMin.textContent = "0" + clockValueMin.textContent
+        };
+        if(clockValueSeg.textContent.length == 1){
+            clockValueSeg.textContent = "0" + clockValueSeg.textContent
+        };
         switchStartStopButton();
         //Ejecutar Notificacion y alarma cuanto todo llega a 0
         console.log("Stopped running time automatically");
@@ -39,7 +43,7 @@ function checkClock() {
         // audio2 = new Audio("https://www.mediafire.com/file/j5qcrwepzlizc7f/alarm-clock-short-6402.mp3")
         // audio.play();
         // audio2.play();
-    }else if(parseInt(clockValueMin.textContent) > 1 && parseInt(clockValueSeg.textContent) < 1){
+    }else if(parseInt(clockValueMin.textContent) > 0 && parseInt(clockValueSeg.textContent) < 1){
         clockValueMin.textContent -= 1
         if(clockValueMin.textContent.length == 1){
             clockValueMin.textContent = "0"+clockValueMin.textContent
@@ -85,26 +89,26 @@ function selectOption(e){
         };
         switch(e) {
             case 0:
-                initialValueMin = 10;
-                initialValueSeg = 0;
+                initialValueMin = "10";
+                initialValueSeg = "00";
                 clockValueMin.textContent = initialValueMin
                 clockValueSeg.textContent = initialValueSeg
                 break;
             case 1:
-                initialValueMin = 20;
-                initialValueSeg = 0;
+                initialValueMin = "20";
+                initialValueSeg = "00";
                 clockValueMin.textContent = initialValueMin
                 clockValueSeg.textContent = initialValueSeg
                 break;
             case 2:
-                initialValueMin = 40;
-                initialValueSeg = 0;
+                initialValueMin = "40";
+                initialValueSeg = "00";
                 clockValueMin.textContent = initialValueMin
                 clockValueSeg.textContent = initialValueSeg
                 break;
             case 3:
-                initialValueMin = 60;
-                initialValueSeg = 60;
+                initialValueMin = "60";
+                initialValueSeg = "00";
                 clockValueMin.textContent = initialValueMin
                 clockValueSeg.textContent = initialValueSeg
                 break;
