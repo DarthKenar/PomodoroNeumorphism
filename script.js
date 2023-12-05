@@ -17,7 +17,7 @@ function switchStartStopButton() {
 }
 
 function start() {
-    if (clockValueMin.textContent > 0) {
+    if (parseInt(clockValueMin.textContent) > 0) {
         runningTime = setInterval(() => {
             checkClock();
         }, 1000);
@@ -28,19 +28,22 @@ function start() {
 
 function checkClock() {
     // checkClock se ejecuta a cada segundo
-    if (clockValueMin.textContent < 1 && clockValueSeg.textContent < 1) {
+    if (parseInt(clockValueMin.textContent) < 1 && parseInt(clockValueSeg.textContent) < 1) {
         clearInterval(runningTime);
         clockValueMin.textContent = initialValueMin
         clockValueSeg.textContent = initialValueSeg
         switchStartStopButton();
         //Ejecutar Notificacion y alarma cuanto todo llega a 0
         console.log("Stopped running time automatically");
-        audio = new Audio("https://drive.google.com/file/d/1xQ6D76vi0_1byf3nM5CV9xfbDxQM5Rdh/view")
-        audio2 = new Audio("https://www.mediafire.com/file/j5qcrwepzlizc7f/alarm-clock-short-6402.mp3")
-        audio.play();
-        audio2.play();
-    }else if(clockValueMin.textContent > 1 && clockValueSeg.textContent < 1){
+        // audio = new Audio("https://drive.google.com/file/d/1xQ6D76vi0_1byf3nM5CV9xfbDxQM5Rdh/view")
+        // audio2 = new Audio("https://www.mediafire.com/file/j5qcrwepzlizc7f/alarm-clock-short-6402.mp3")
+        // audio.play();
+        // audio2.play();
+    }else if(parseInt(clockValueMin.textContent) > 1 && parseInt(clockValueSeg.textContent) < 1){
         clockValueMin.textContent -= 1
+        if(clockValueMin.textContent.length == 1){
+            clockValueMin.textContent = "0"+clockValueMin.textContent
+        };
         clockValueSeg.textContent = 59
     }else{
         clockValueSeg.textContent -= 1;
