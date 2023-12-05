@@ -1,4 +1,3 @@
-
 var runningTime;
 var clockValueMin = document.getElementById("clockValueMin");
 var clockValueSeg = document.getElementById("clockValueSeg");
@@ -10,6 +9,8 @@ var customizeButton = document.getElementById("customizeButton")
 var customizeModal = document.getElementById("customizeModal")
 var customizeOptionsList = customizeModal.getElementsByTagName("input")
 var eventoClick = new Event('click');
+var newTask = document.getElementById("newTask")
+var newTaskButton = document.getElementById("newTaskButton")
 
 function switchStartStopButton() {
     startButton.classList.toggle("hidden");

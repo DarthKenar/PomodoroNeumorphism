@@ -1,36 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notificación con JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
 </head>
 <body>
-
-<script>
-  // Verificar si el navegador soporta la API de Notificaciones
-  function mostrar(){
-    if ("Notification" in window) {
-        // Solicitar permiso para mostrar notificaciones
-        Notification.requestPermission().then(function (permission) {
-        if (permission === "granted") {
-            // Crear y mostrar la notificación
-            var notificacion = new Notification("¡Hola!", {
-            body: "Esta es una notificación de ejemplo.",
-            icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/220px-Image_created_with_a_mobile_phone.png" // Puedes proporcionar la ruta a una imagen
-            });
-            // Puedes agregar eventos para manejar acciones del usuario
-            notificacion.onclick = function () {
-            alert("El usuario hizo clic en la notificación.");
-            };
-        }
-        });
-    } else {
-        alert("Tu navegador no soporta la API de Notificaciones.");
-    }
-};
-mostrar()
-</script>
-<button onclick="mostrar()"></button>
+  <input class="input" type="text" placeholder="HOLA A TODOS">
 </body>
 </html>

@@ -583,10 +583,6 @@ video {
   justify-content: space-between;
 }
 
-.gap-2 {
-  gap: 0.5rem;
-}
-
 .gap-8 {
   gap: 2rem;
 }
@@ -807,13 +803,16 @@ ul li div {
 
 /* tasks */
 
-article {
+ul li label {
   width: calc(100% - 60px);
+  background-color: inherit;
   border: 1px solid #1c1c1c;
   min-height: 3rem;
+  padding: 10px;
+  word-wrap: break-word;
 }
 
-article:empty::before {
+ul li label:empty::before {
   position: absolute;
 }
 
@@ -855,8 +854,6 @@ ul li div button {
   -webkit-backdrop-filter: blur(9px);
           backdrop-filter: blur(9px);
 }
-
-/* //customize */
 
 .label {
   display: inline-flex;

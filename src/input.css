@@ -151,12 +151,17 @@ ul li div {
 }
 
 /* tasks */
-ul li input {
+ul li label {
     width: calc(100% - 60px);
+    background-color: inherit;
     border: 1px solid #1c1c1c;
     min-height: 3rem;
+    padding: 10px;
+    word-wrap: break-word;
+}
+
+ul li label:empty::before {
     position: absolute;
-    background-color: red;
 }
 
 /* switch tasks buttons */
@@ -196,7 +201,6 @@ ul li div button {
     backdrop-filter: blur(9px);
 }
 
-/* //customize */
 .label {
     display: inline-flex;
     align-items: center;
