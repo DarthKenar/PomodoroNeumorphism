@@ -6,11 +6,54 @@
     <link href="/dist/output.css" rel="stylesheet">
     <title>Pomodoro Neumorphism</title>
 </head>
+    <div id="customizeModal" class="modal glass">
+        <div class="modal-content">
+            <span onclick="customizeClose()" style="cursor: pointer; float: right;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </span>
+            <section class="flex flex-col gap-8 pt-10">
+                <label class="label">
+                    <div class="toggle">
+                      <input class="toggle-state" type="checkbox" name="check" value="check" />
+                      <div class="indicator"></div>
+                    </div>
+                    <title>Paso de bebé</title>
+                    <span class="label-text">10 min  •  5 min  •  10 min</span>
+                </label>
+                <label class="label">
+                    <div class="toggle">
+                      <input class="toggle-state" type="checkbox" name="check" value="check" />
+                      <div class="indicator"></div>
+                    </div>
+                    <title>Popular</title>
+                    <span class="label-text">20 min • 5 min • 15 min</span>
+                </label>
+                <label class="label">
+                    <div class="toggle">
+                      <input class="toggle-state" type="checkbox" name="check" value="check" />
+                      <div class="indicator"></div>
+                    </div>
+                    <title class="font-bold">Medio</title>
+                    <span class="label-text">40 min • 8 min • 20 min</span>
+                </label>
+                <label class="label">
+                    <div class="toggle">
+                      <input class="toggle-state" type="checkbox" name="check" value="check" />
+                      <div class="indicator"></div>
+                    </div>
+                    <div class="flex flex-col items-start justify-center">
+                        <title>Extendido</title>
+                        <span class="label-text">60 min • 10 min • 25 min</span>
+                    </div>
+                </label>
+            </section>
+        </div>
+    </div>
     <body class="flex flex-col items-center bg-[#282828]">
         <header class="flex justify-between w-full">
             <h2 class="marco">Pomodoro Neumorphism</h2>
             <nav>
-                <button>
+                <button id="customizeButton">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
                     <span>Personalizar</span>
                 </button>
@@ -51,13 +94,15 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                             </button>
                         </div>
-                        <article contenteditable></article>
+                        <article contenteditable>Write here...</article>
                     </li>
                 </ul>
             </aside>
         </main>
         <footer class="fixed bottom-0 w-full text-center">
-            asdasd
+            <aside class="flex items-center justify-center">
+                <a class="line-through">Copyright © 2023</a> - Hecho por&nbsp;<a href="https://f-vega.com" class="font-semibold">Federico Vega&nbsp;</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-coffee"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+            </aside>
         </footer>
     </body>
     <script src="script.js"></script>
