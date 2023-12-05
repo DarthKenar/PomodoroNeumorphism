@@ -151,14 +151,12 @@ ul li div {
 }
 
 /* tasks */
-article {
+ul li input {
     width: calc(100% - 60px);
     border: 1px solid #1c1c1c;
     min-height: 3rem;
-}
-
-article:empty::before {
     position: absolute;
+    background-color: red;
 }
 
 /* switch tasks buttons */
