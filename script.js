@@ -30,12 +30,8 @@ function checkClock() {
     // checkClock se ejecuta a cada segundo
     if (parseInt(clockValueMin.textContent) < 1 && parseInt(clockValueSeg.textContent) < 1) {
         clearInterval(runningTime);
-        if(clockValueMin.textContent.length == 1){
-            clockValueMin.textContent = "0" + clockValueMin.textContent
-        };
-        if(clockValueSeg.textContent.length == 1){
-            clockValueSeg.textContent = "0" + clockValueSeg.textContent
-        };
+        clockValueMin.textContent = initialValueMin
+        clockValueSeg.textContent = initialValueSeg
         switchStartStopButton();
         //Ejecutar Notificacion y alarma cuanto todo llega a 0
         console.log("Stopped running time automatically");
