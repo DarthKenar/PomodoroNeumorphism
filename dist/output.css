@@ -636,10 +636,6 @@ video {
   font-weight: 600;
 }
 
-.line-through {
-  text-decoration-line: line-through;
-}
-
 button {
   background: none;
   border: none;
@@ -804,12 +800,12 @@ ul li div {
 /* tasks */
 
 ul li label {
-  width: calc(100% - 60px);
   background-color: inherit;
   border: 1px solid #1c1c1c;
   min-height: 3rem;
   padding: 10px;
   word-wrap: break-word;
+  width: calc(100% - 60px);
 }
 
 ul li label:empty::before {
@@ -847,6 +843,22 @@ ul li div button {
         inset 4px 4px 10px rgba(0, 0, 0, 0.5),
         inset -4px -4px 10px rgba(67, 67, 67, 0.3),
         4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para pantallas de menos de 600px (celulares) */
+
+@media only screen and (max-width: 600px) {
+  .modal-content {
+    width: 85%;
+  }
+}
+
+/* Estilo para pantallas de 601px a 900px (tablets) */
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .modal-content {
+    width: 60%;
+  }
 }
 
 .glass {
