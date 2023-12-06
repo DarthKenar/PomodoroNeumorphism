@@ -1,6 +1,6 @@
 # POMODORO TIMER NEUROMORFISTA
 
-## Con este gestionador de tareas podes...
+## Con este gestionador de tareas podes
 
 - Establecer tus configuraciones para POMODORO.
 - Ver progreso tanto en el reloj (tiempo restante) como en la barra porcentual.
