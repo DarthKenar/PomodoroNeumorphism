@@ -1,11 +1,19 @@
 var newTask = document.getElementById("newTask")
 var newTaskButton = document.getElementById("newTaskButton")
-
 //Existir 2 listas:
     //Tareas completadas
     //Tareas Pendientes
 var completedTasks = [];
 var pendingTasks = [];
+
+function upTask(){
+    console.log("upTask()")
+};
+
+function downTask(){
+    console.log("downTask()")
+};
+
 function refreshTasks(){
     //Actualizar DOM
         //Mostrar Tareas Pendientes
@@ -25,8 +33,9 @@ function saveTask(){
         //funcion:
         refreshTasks();
         // FocusEvent.click() //quitar el focus del elemento
-        newTask.textContent = ""
         newTask.focus()
+        newTask.textContent = ""
+        
     //Limpiar newTask Label
         
 
