@@ -4,15 +4,29 @@ var newTaskButton = document.getElementById("newTaskButton")
 //Existir 2 listas:
     //Tareas completadas
     //Tareas Pendientes
+var completedTasks = [];
+var pendingTasks = [];
+function refreshTasks(){
+    //Actualizar DOM
+        //Mostrar Tareas Pendientes
+        //Mostrar Tareas Completadas
+    console.log("refreshTasks()")
+};
 
 function saveTask(){
     console.log("saveTask()")
+    
     //funcion que tendrá que:
         //Guardar la tarea en la lista tareas pendientes (pushear tarea)
+        pendingTasks.push(newTask.textContent);
+        // newTask.outerHTML("<li>HOLA A TODOS</li>")
+        // newTask.insertAdjacentHTML(outerHTML,"<li>HOLA A TODOS</li>");
+        // newTask.insertBefore();
         //funcion:
-        //Actualizar DOM
-            //Actualizar Tareas Pendientes
-            //Actualizar Tareas Completadas
+        refreshTasks();
+        // FocusEvent.click() //quitar el focus del elemento
+        newTask.textContent = ""
+        newTask.focus()
     //Limpiar newTask Label
         
 

@@ -5,10 +5,10 @@ var initialValueMin = clockValueMin.textContent
 var initialValueSeg = clockValueSeg.textContent
 var startButton = document.getElementById("startButton");
 var stopButton = document.getElementById("stopButton")
-var customizeButton = document.getElementById("customizeButton")
+var customizeButtonOpen = document.getElementById("customizeButtonOpen")
 var customizeModal = document.getElementById("customizeModal")
 var customizeOptionsList = customizeModal.getElementsByTagName("input")
-
+var customizeButtonClose = document.getElementById("customizeButtonClose")
 
 function switchStartStopButton() {
     startButton.classList.toggle("hidden");
@@ -122,7 +122,9 @@ window.onclick = function(event) {
 
 startButton.addEventListener('click', start);
 stopButton.addEventListener('click', stop);
-customizeButton.addEventListener('click', customizeOpen);
+customizeButtonOpen.addEventListener('click', customizeOpen);
+customizeButtonClose.addEventListener('click', customizeClose);
+
 
 
 for(let i=0; i<customizeOptionsList.length; i++){
