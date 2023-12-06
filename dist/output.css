@@ -928,12 +928,22 @@ aside ul li #newTaskButton {
 
 .disappear {
   transition: opacity 1s ease-out;
-  opacity: 0;
+  opacity: 0%;
 }
 
 .reduce {
-  transition: height 1s ease-out;
-  height: 0;
+  transition: all 1s ease-out !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.alert {
+  border: red !important;
+  border: 5px !important;
+  transition: all 3s;
+  background-color: rgb(105, 15, 15);
 }
 
 @media (min-width: 1024px) {
