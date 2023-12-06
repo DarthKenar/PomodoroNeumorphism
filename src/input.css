@@ -161,8 +161,7 @@ aside ul li label {
     min-height: 3rem;
     padding: 10px;
     padding-bottom: 3rem;
-    word-wrap: break-word;
-    width: calc(100% - 60px);
+    width: calc(100%);
 }
 
 aside ul li label:empty::before {
@@ -271,4 +270,15 @@ aside ul li #newTaskButton {
 
 .toggle-state:checked ~ .indicator {
     transform: translate3d(25%, 0, 0);
+}
+
+/* Estilo cuando la clase 'desaparecer' está aplicada */
+.disappear {
+    transition: opacity 1s ease-out,;
+    opacity: 0;
+}
+
+.reduce {
+    transition: height 1s ease-out;
+    height: 0;
 }
