@@ -70,7 +70,7 @@
         <main class="lg:flex h-full p-4 w-full">
             <section name="timer" class="lg:w-3/5 flex flex-col items-center justify-center lg:h-full ">
                 <div class="clock">
-                    <h1 id="clockValueMin" class="text-4xl">01</h1><h1 class="text-4xl">:</h1><h1 id="clockValueSeg" class="text-4xl">00</h1>
+                    <h1 id="clockValueMin" class="text-4xl">20</h1><h1 class="text-4xl">:</h1><h1 id="clockValueSeg" class="text-4xl">00</h1>
                 </div>
                 <button id="startButton" class="btn-clock">
                     Start
@@ -87,10 +87,10 @@
                 <ul class="text-base marco p-4 my-4">
                     <li>
                         <div>
-                            <button>
+                            <button class="switch">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
                             </button>
-                            <button>
+                            <button class="switch">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                             </button>
                         </div>
@@ -106,5 +106,6 @@
             </aside>
         </footer>
     </body>
-    <script src="./script.js"></script>
+    <script src="./clock.js"></script>
+    <script src="./tasks.js"></script>
 </html>

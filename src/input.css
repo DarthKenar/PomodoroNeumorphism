@@ -144,32 +144,46 @@ section button {
     padding: 6px 32px;
 }
 
+aside ul li {
+    position: relative;
+}
+
 /* buttons container */
-ul li div {
+aside ul li div {
     display: flex;
     justify-content: space-around;
 }
 
 /* tasks */
-ul li label {
+aside ul li label {
     background-color: inherit;
     border: 1px solid #1c1c1c;
     min-height: 3rem;
     padding: 10px;
+    padding-bottom: 3rem;
     word-wrap: break-word;
     width: calc(100% - 60px);
 }
 
-ul li label:empty::before {
+aside ul li label:empty::before {
     position: absolute;
 }
 
 /* switch tasks buttons */
-ul li div button {
+aside ul li div .switch {
     margin: 2px;
     margin-top: 6px;
     margin-bottom: 6px;
     padding: 4px;
+}
+
+aside ul li #newTaskButton {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    margin-bottom: 1.25rem;
+    margin-right: 1.25rem;
+    padding: 0.25rem;
 }
 
 .modal {

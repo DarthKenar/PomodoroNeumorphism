@@ -8,9 +8,7 @@ var stopButton = document.getElementById("stopButton")
 var customizeButton = document.getElementById("customizeButton")
 var customizeModal = document.getElementById("customizeModal")
 var customizeOptionsList = customizeModal.getElementsByTagName("input")
-var eventoClick = new Event('click');
-var newTask = document.getElementById("newTask")
-var newTaskButton = document.getElementById("newTaskButton")
+
 
 function switchStartStopButton() {
     startButton.classList.toggle("hidden");
@@ -70,13 +68,6 @@ function customizeClose(){
     document.getElementById('customizeModal').style.display = 'none';
 }
 
-window.onclick = function(event) {
-    var modal = document.getElementById('customizeModal');
-    if (event.target == modal) {
-        modal.style.display = 'none';
-    }
-}
-
 function selectOption(e){
     if(customizeOptionsList[e].checked){
         for(let i=0; i<customizeOptionsList.length; i++){
@@ -122,9 +113,17 @@ function selectOption(e){
     }
 }
 
+window.onclick = function(event) {
+    var modal = document.getElementById('customizeModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
 startButton.addEventListener('click', start);
 stopButton.addEventListener('click', stop);
 customizeButton.addEventListener('click', customizeOpen);
+
 
 for(let i=0; i<customizeOptionsList.length; i++){
     customizeOptionsList[i].addEventListener("change", function() {
@@ -134,3 +133,4 @@ for(let i=0; i<customizeOptionsList.length; i++){
         customizeOptionsList[i].defaultChecked = true
     }
 }
+
