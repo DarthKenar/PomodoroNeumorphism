@@ -58,8 +58,12 @@ function deleteTask(id) {
     applyReduceTransition(elementToRemove,"%");
     setTimeout(()=>(elementToRemove.remove()),500);
     tasksCounter.textContent = parseInt(tasksCounter.textContent) - 1
-  }
-
+}
+function editTask(id) {
+    newTask.textContent = document.getElementById(`pendingTask${id}`).textContent;
+    deleteTask(id);
+    newTask.focus({preventScroll: true,focusVisible: true });
+}
 function saveTask(){
     console.log("saveTask()")
 
@@ -108,5 +112,4 @@ newTask.addEventListener('keydown',function(event){
         };
     };
 });
-
 newTaskButton.addEventListener("click", saveTask);
