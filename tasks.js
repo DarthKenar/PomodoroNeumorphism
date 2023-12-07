@@ -27,9 +27,9 @@ function blinkingAlert(){
     setInterval(()=>{newTask.classList.toggle("no-alert")},500);
 };
 
-function applyReduceTransition(element) {
+function applyReduceTransition(element,measure) {
     // Asegúrate de que la altura inicial sea explícitamente establecida
-    element.style.height = `${element.offsetHeight}px`;
+    element.style.height = `${element.offsetHeight}${measure}`;
     // Aplica la clase "reduce" al elemento y a todos sus elementos secundarios
     element.classList.add("reduce");
   
@@ -42,7 +42,10 @@ function applyReduceTransition(element) {
 function deleteTask(id) {
     let elementToRemove = document.getElementById(`pendingTask${id}`);
     elementToRemove.classList.add("disappear")
-    applyReduceTransition(elementToRemove);
+    applyReduceTransition(elementToRemove,"%");
+    setTimeout(()=>(applyReduceTransition(elementToRemove,"%")),300);
+    setTimeout(()=>(elementToRemove.remove()),500);
+
   }
 
 function saveTask(){
