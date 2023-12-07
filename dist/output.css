@@ -943,6 +943,8 @@ aside ul li #newTaskButton {
 
 .no-alert {
   border: 1px solid #1c1c1c !important;
+  box-shadow: 0 0 0px 0px bisque;
+  box-shadow: inset 0 0 0px 0px bisque;
 }
 
 @media (min-width: 1024px) {
