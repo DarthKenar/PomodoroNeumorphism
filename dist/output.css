@@ -934,8 +934,12 @@ aside ul li #newTaskButton {
 }
 
 .alert {
-  border-color: rgb(56, 7, 8);
-  border-width: 5px;
+  border-color: rgb(56, 7, 8) !important;
+  border-width: 1px !important;
+}
+
+.no-alert {
+  border: 1px solid #1c1c1c;
 }
 
 @media (min-width: 1024px) {

@@ -23,10 +23,14 @@ function refreshTasks(){
 };
 
 function blinkingAlert(){
+        newTask.classList.add("no-alert")
         blinking = setInterval(()=>{newTask.classList.toggle("alert")},90);
         setTimeout(()=>{
             clearInterval(blinking)
-        },350)
+        },400)
+        setTimeout(()=>{
+            newTask.classList.add("no-alert")
+        },450)
 
 };
 
