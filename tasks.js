@@ -21,17 +21,24 @@ function refreshTasks(){
         //Mostrar Tareas Completadas
     console.log("refreshTasks()")
 };
+function focusNewTask(){
+    newTask.blur()
+    newTask.textContent = ""
+    setTimeout(()=>{
+        newTask.focus()
+    },50)
+};
 
 function blinkingAlert(){
-        newTask.classList.add("no-alert")
-        blinking = setInterval(()=>{newTask.classList.toggle("alert")},90);
-        setTimeout(()=>{
-            clearInterval(blinking)
-        },400)
+        newTask.classList.add("alert");
         setTimeout(()=>{
             newTask.classList.add("no-alert")
-        },450)
-
+        },600);
+        setTimeout(()=>{
+            newTask.classList.remove("no-alert")
+            newTask.classList.remove("alert")
+        },800);
+        focusNewTask();
 };
 
 function applyReduceTransition(element,measure) {
@@ -86,11 +93,7 @@ function saveTask(){
         refreshTasks();
         // FocusEvent.click() //quitar el focus del elemento
         tasksCounter.textContent = parseInt(tasksCounter.textContent) + 1 
-        newTask.blur()
-        newTask.textContent = ""
-        setTimeout(()=>{
-            newTask.focus()
-        },50)
+        focusNewTask();
         //Limpiar newTask Label
     };
 };
