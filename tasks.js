@@ -1,9 +1,9 @@
 var newTask = document.getElementById("newTask")
 var newTaskButton = document.getElementById("newTaskButton")
 var tasksList = document.getElementById("tasks")
-//Existir 2 listas:
-    //Tareas completadas
-    //Tareas Pendientes
+var tasksCounter = document.getElementById("tasksCounter")
+var title = document.getElementById("title")
+
 var completedTasks = [];
 var pendingTasks = [];
 
@@ -23,8 +23,11 @@ function refreshTasks(){
 };
 
 function blinkingAlert(){
-    newTask.classList.toggle("alert");
-    setInterval(()=>{newTask.classList.toggle("no-alert")},500);
+        blinking = setInterval(()=>{newTask.classList.toggle("alert")},90);
+        setTimeout(()=>{
+            clearInterval(blinking)
+        },350)
+
 };
 
 function applyReduceTransition(element,measure) {
@@ -41,11 +44,9 @@ function applyReduceTransition(element,measure) {
   
 function deleteTask(id) {
     let elementToRemove = document.getElementById(`pendingTask${id}`);
-    elementToRemove.classList.add("disappear")
     applyReduceTransition(elementToRemove,"%");
-    setTimeout(()=>(applyReduceTransition(elementToRemove,"%")),300);
     setTimeout(()=>(elementToRemove.remove()),500);
-
+    tasksCounter.textContent = parseInt(tasksCounter.textContent) - 1
   }
 
 function saveTask(){
@@ -80,9 +81,12 @@ function saveTask(){
         //funcion:
         refreshTasks();
         // FocusEvent.click() //quitar el focus del elemento
-        newTask.focus()
+        tasksCounter.textContent = parseInt(tasksCounter.textContent) + 1 
+        newTask.blur()
         newTask.textContent = ""
-            
+        setTimeout(()=>{
+            newTask.focus()
+        },50)
         //Limpiar newTask Label
     };
 };
