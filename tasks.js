@@ -2,13 +2,11 @@ var newTask = document.getElementById("newTask")
 var newTaskButton = document.getElementById("newTaskButton")
 var tasksList = document.getElementById("tasks")
 var tasksCounter = document.getElementById("tasksCounter")
-var title = document.getElementById("title")
 var completedTasks = [];
 var pendingTasks = [];
 
 function focusInTextAtTheEnd(elemento) {
     // Verificar si el elemento tiene texto
-    console.log("establecerFocoAlFinal()");
     if (elemento.childNodes.length > 0) {
         var ultimoNodo = elemento.childNodes[elemento.childNodes.length - 1];
 

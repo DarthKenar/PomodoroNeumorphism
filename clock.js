@@ -114,6 +114,7 @@ function selectOption(e){
 }
 
 window.onclick = function(event) {
+    console.log("Closing Modal")
     var modal = document.getElementById('customizeModal');
     if (event.target == modal) {
         modal.style.display = 'none';
