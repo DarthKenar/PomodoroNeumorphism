@@ -3,9 +3,34 @@ var newTaskButton = document.getElementById("newTaskButton")
 var tasksList = document.getElementById("tasks")
 var tasksCounter = document.getElementById("tasksCounter")
 var title = document.getElementById("title")
-
 var completedTasks = [];
 var pendingTasks = [];
+
+function focusInTextAtTheEnd(elemento) {
+    // Verificar si el elemento tiene texto
+    console.log("establecerFocoAlFinal()");
+    if (elemento.childNodes.length > 0) {
+        var ultimoNodo = elemento.childNodes[elemento.childNodes.length - 1];
+
+        // Crear un nuevo rango de selección
+        var rango = document.createRange();
+
+        // Seleccionar el nodo de texto dentro del elemento
+        rango.selectNodeContents(ultimoNodo);
+
+        // Establecer el punto de inicio y fin del rango al final del texto
+        rango.collapse(false);
+
+        // Crear una nueva selección y aplicarla al documento
+        var seleccion = window.getSelection();
+        seleccion.removeAllRanges();
+        seleccion.addRange(rango);
+    };
+
+    // Establecer el foco en el elemento
+    elemento.focus();
+}
+
 
 function upTask(){
     console.log("upTask()")
@@ -62,7 +87,7 @@ function deleteTask(id) {
 function editTask(id) {
     newTask.textContent = document.getElementById(`pendingTask${id}`).textContent;
     deleteTask(id);
-    newTask.focus({preventScroll: true,focusVisible: true });
+    focusInTextAtTheEnd(newTask);
 }
 function saveTask(){
     console.log("saveTask()")
