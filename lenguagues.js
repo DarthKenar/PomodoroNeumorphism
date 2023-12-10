@@ -24,10 +24,15 @@ var option3 = document.getElementById('option3')
 var option4 = document.getElementById('option4')
 
 
-
+//for close any modals
 window.onclick = function(event) {
+    let lenguageModal = document.getElementById("lenguageModal")
+    let customizeModal = document.getElementById("customizeModal")
     if (event.target == lenguageModal) {
         lenguageModal.style.display = 'none';
+    }
+    if (event.target == customizeModal) {
+        customizeModal.style.display = 'none';
     }
 }
 
