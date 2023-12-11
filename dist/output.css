@@ -777,7 +777,7 @@ nav button span {
 
 /* clock button */
 
-section button {
+.btn-clock {
   margin: 24px;
   padding: 6px 32px;
 }
@@ -834,6 +834,16 @@ aside ul li #newTaskButton {
   width: 100%;
   justify-content: center;
   align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.modal-content .optionsSection .label aside {
+  padding-left: 1rem;
+}
+
+.modal-content .optionsSection .label aside h3 {
+  font-size: smaller;
 }
 
 .modal-content .lenguagesSection {
@@ -845,6 +855,8 @@ aside ul li #newTaskButton {
   width: 100%;
   justify-content: center;
   align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .closeModal {
@@ -923,10 +935,6 @@ aside ul li #newTaskButton {
   align-items: center;
   cursor: pointer;
   color: #394a56;
-}
-
-.label-text {
-  margin-left: 16px;
 }
 
 .toggle {

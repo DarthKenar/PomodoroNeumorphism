@@ -68,6 +68,7 @@ function lenguageClose(){
 lenguageButtonOpen.addEventListener('click',lenguageOpen);
 lenguageButtonClose.addEventListener('click',lenguageClose);
 
+//Transformar esto en un objeto de tipo diccionario con clave valor en donde el valor de la clave se añade al newTask.textContent de cada lenguaje
 var newTaskPlaceHolders = ["","Escribe aquí...","Write here...","Escribao Aquio...",""]
 // Spanish
 function spanishLenguageSelected(){
@@ -98,6 +99,8 @@ function spanishLenguageSelected(){
     if(newTaskPlaceHolders.includes(newTask.textContent)){
         newTask.textContent = "Escribe aquí..."
     }
+
+    //Agregar efecto que cuando hago click desaparece el texto contenido de cada objeto que se traduce y aparece el nuevo.
 };
 
 esBtn.addEventListener("click",spanishLenguageSelected);
