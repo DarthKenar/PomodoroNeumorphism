@@ -90,7 +90,7 @@ function editTask(id) {
 function saveTask(){
     console.log("saveTask()")
 
-    if(newTask.textContent == "" || newTask.textContent == "Escribe aquí..."){
+    if(newTaskPlaceHolders.includes(newTask.textContent)){
         blinkingAlert();
     }else{
         //funcion que tendrá que:
