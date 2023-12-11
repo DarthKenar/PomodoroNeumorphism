@@ -14,6 +14,8 @@ var stopButton = document.getElementById("stopButton")
 //lenguage buttons
 var esBtn = document.getElementById('esBtn')
 var enBtn = document.getElementById('enBtn')
+var brBtn = document.getElementById('brBtn')
+var jpBtn = document.getElementById('jpBtn')
 
 // Textos para traducir
 
@@ -66,13 +68,15 @@ function lenguageClose(){
 lenguageButtonOpen.addEventListener('click',lenguageOpen);
 lenguageButtonClose.addEventListener('click',lenguageClose);
 
-var newTaskPlaceHolders = ["","Escribe aquí...","Write here..."]
+var newTaskPlaceHolders = ["","Escribe aquí...","Write here...","Escribao Aquio...",""]
 // Spanish
 function spanishLenguageSelected(){
     console.log("Switched to Spanish")
 
     esLabel.textContent = "Español"
     enLabel.textContent = "Inglés"
+    brLabel.textContent = "Portugués"
+    jpLabel.textContent = "Japonés"
 
     title1.textContent = "Pomodoro Neumorfista"
     title2.textContent = title1.textContent
@@ -104,6 +108,8 @@ function englishLenguageSelected(){
 
     esLabel.textContent = "Spanish"
     enLabel.textContent = "English"
+    brLabel.textContent = "Portugués"
+    jpLabel.textContent = "Japonés"
 
     title1.textContent = "Pomodoro Neumorphism"
     title2.textContent = title1.textContent
@@ -129,3 +135,72 @@ function englishLenguageSelected(){
 };
 
 enBtn.addEventListener("click",englishLenguageSelected);
+
+// Portugués
+function portuguesLenguageSelected(){
+    console.log("Switched to Portugueis")
+
+    esLabel.textContent = "Españolo"
+    enLabel.textContent = "Englisholo"
+    brLabel.textContent = "Portuguese"
+    jpLabel.textContent = "Japanese"
+
+    title1.textContent = "Pomodoro Neumorphiq"
+    title2.textContent = title1.textContent
+
+    startButton.textContent = "Empezao"
+    stopButton.textContent = "Stopao"
+
+    clockOption1.textContent = "Chilino pasao"
+    clockOption2.textContent = "Populeo"
+    clockOption3.textContent = "Medioeo"
+    clockOption4.textContent = "Extendeo"
+
+    tasksLabel.textContent = "Tarqao"
+
+    customizeLabel.textContent = "Custimizao"
+    restartSessionLabel.textContent = "Comezao nuevo"
+    lenguageLabel.textContent = "Lenguao"
+
+    if(newTaskPlaceHolders.includes(newTask.textContent)){
+        newTask.textContent = "Escribao Aquio..."
+    }
+        
+};
+
+brBtn.addEventListener("click",portuguesLenguageSelected);
+
+// Japonés
+function japaneseLenguageSelected(){
+    console.log("Switched to Portugueis")
+
+    esLabel.textContent = "[[[[%%]]]]"
+    enLabel.textContent = "==¨¨*"
+    brLabel.textContent = "!2&/"
+    jpLabel.textContent = "//%%$"
+
+    title1.textContent = "Pomodoro Neumorphiq"
+    title2.textContent = title1.textContent
+
+    startButton.textContent = "Empezao"
+    stopButton.textContent = "Stopao"
+
+    clockOption1.textContent = "Chilino pasao"
+    clockOption2.textContent = "Populeo"
+    clockOption3.textContent = "Medioeo"
+    clockOption4.textContent = "Extendeo"
+
+    tasksLabel.textContent = "Tarqao"
+
+    customizeLabel.textContent = "Custimizao"
+    restartSessionLabel.textContent = "Comezao nuevo"
+    lenguageLabel.textContent = "Lenguao"
+
+    if(newTaskPlaceHolders.includes(newTask.textContent)){
+        newTask.textContent = "Escribao Aquio..."
+    }
+        
+};
+
+jpBtn.addEventListener("click",japaneseLenguageSelected);
+
