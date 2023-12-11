@@ -829,7 +829,8 @@ aside ul li #newTaskButton {
   display: flex;
   flex-direction: column;
   gap: 2rem/* 32px */;
-  padding-top: 2.5rem/* 40px */;
+  padding-top: 3.5rem/* 40px */;
+  padding-bottom: 2.5rem/* 40px */;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -837,12 +838,22 @@ aside ul li #newTaskButton {
 
 .modal-content .lenguagesSection {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 2rem/* 32px */;
-  padding-top: 2.5rem/* 40px */;
+  padding-top: 3.5rem/* 40px */;
+  padding-bottom: 2.5rem/* 40px */;
   width: 100%;
   justify-content: center;
   align-items: center;
+}
+
+.closeModal {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-top: 25px;
+  padding-right: 25px;
+  cursor: pointer;
 }
 
 #lenguageModal div {
