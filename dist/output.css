@@ -825,6 +825,18 @@ aside ul li #newTaskButton {
   padding: 0.25rem;
 }
 
+main section header button {
+  padding: 8px;
+}
+
+main section header #restTime {
+  margin-left: 0px;
+}
+
+main section header #workTime {
+  margin-right: 0px;
+}
+
 .modal-content .optionsSection {
   display: flex;
   flex-direction: column;
