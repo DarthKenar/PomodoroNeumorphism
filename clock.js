@@ -136,6 +136,15 @@ for(let i=0; i<customizeOptionsList.length; i++){
 function toggleTypeOfWork(){
     workTime.classList.toggle("pressed")
     restTime.classList.toggle("pressed")
+
+    if(workTime.classList.contains("pressed")){
+        //si está presionado trabajar
+    }
+
+    if(restTime.classList.contains("pressed")){
+        //si está presionado descansar
+    }
+
 };
 
 workTime.addEventListener('click', toggleTypeOfWork)
