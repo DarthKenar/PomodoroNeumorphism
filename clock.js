@@ -10,6 +10,9 @@ var customizeModal = document.getElementById("customizeModal")
 var customizeOptionsList = customizeModal.getElementsByTagName("input")
 var customizeButtonClose = document.getElementById("customizeButtonClose")
 
+var workTime = document.getElementById("workTime")
+var restTime = document.getElementById("restTime")
+
 function switchStartStopButton() {
     startButton.classList.toggle("hidden");
     stopButton.classList.toggle("hidden");
@@ -129,4 +132,12 @@ for(let i=0; i<customizeOptionsList.length; i++){
         customizeOptionsList[i].defaultChecked = true
     }
 }
+
+function toggleTypeOfWork(){
+    workTime.classList.toggle("pressed")
+    restTime.classList.toggle("pressed")
+};
+
+workTime.addEventListener('click', toggleTypeOfWork)
+restTime.addEventListener('click', toggleTypeOfWork)
 

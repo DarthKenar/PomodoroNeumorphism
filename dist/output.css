@@ -717,7 +717,6 @@ button:hover {
 }
 
 button:active {
-  border-radius: 10px 0px 0px 0px;
   background: #282828;
   box-shadow: inset 4px 4px 8px #1c1c1c,
                 inset -4px -4px 8px #343434;
@@ -830,11 +829,19 @@ main section header button {
 }
 
 main section header #restTime {
+  border-radius: 0px 10px 10px 0px;
   margin-left: 0px;
 }
 
 main section header #workTime {
+  border-radius: 10px 0px 0px 10px;
   margin-right: 0px;
+}
+
+.pressed {
+  background: #282828;
+  box-shadow: inset 4px 4px 8px #1c1c1c,
+                inset -4px -4px 8px #343434;
 }
 
 .modal-content .optionsSection {
