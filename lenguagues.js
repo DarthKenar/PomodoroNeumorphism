@@ -6,6 +6,10 @@ var customizeModal = document.getElementById("customizeModal")
 var lenguageButtonOpen = document.getElementById("lenguageButtonOpen")
 var lenguageButtonClose = document.getElementById("lenguageButtonClose")
 
+//Type Time (work/rest)
+var workTime = document.getElementById("workTime")
+var restTime = document.getElementById("restTime")
+
 // Clock start/stop buttons
 
 var startButton = document.getElementById("startButton")
@@ -94,6 +98,9 @@ function spanishLenguageSelected(){
     title1.textContent = "Pomodoro Neumorfista"
     title2.textContent = title1.textContent
 
+    workTime.textContent = "Trabajar"
+    restTime.textContent = "Descansar"
+
     startButton.textContent = "Empezar"
     stopButton.textContent = "Parar"
 
@@ -135,6 +142,9 @@ function englishLenguageSelected(){
     title1.textContent = "Pomodoro Neumorphism"
     title2.textContent = title1.textContent
 
+    workTime.textContent = "Work"
+    restTime.textContent = "Rest"
+
     startButton.textContent = "Start"
     stopButton.textContent = "Stop"
 
@@ -175,6 +185,9 @@ function portuguesLenguageSelected(){
     title1.textContent = "Pomodoro Neumorfismo"
     title2.textContent = title1.textContent
 
+    workTime.textContent = "Trabajar en portugues"
+    restTime.textContent = "Descansar en portugues"
+
     startButton.textContent = "Começar"
     stopButton.textContent = "Parar"
 
@@ -214,6 +227,9 @@ function japaneseLenguageSelected(){
 
     title1.textContent = "ポモドーロニューモーフィズム"
     title2.textContent = title1.textContent
+
+    workTime.textContent = "Trabajar en Japones"
+    restTime.textContent = "Descansar en Japones"
 
     startButton.textContent = "始める"
     stopButton.textContent = "停止"
