@@ -32,11 +32,14 @@ function checkClock() {
     // checkClock se ejecuta a cada segundo
     if (parseInt(clockValueMin.textContent) < 1 && parseInt(clockValueSeg.textContent) < 1) {
         clearInterval(runningTime);
-        clockValueMin.textContent = initialValueMin
+        clockValueMin.textContent = clockValueMin.textContent
         clockValueSeg.textContent = initialValueSeg
         switchStartStopButton();
         //Ejecutar Notificacion y alarma cuanto todo llega a 0
         console.log("Stopped running time automatically");
+
+        //Cambia a modo rest o work dependiendo del modo anterior
+        switchTypeOfWork();
         // audio = new Audio("https://drive.google.com/file/d/1xQ6D76vi0_1byf3nM5CV9xfbDxQM5Rdh/view")
         // audio2 = new Audio("https://www.mediafire.com/file/j5qcrwepzlizc7f/alarm-clock-short-6402.mp3")
         // audio.play();
@@ -57,8 +60,11 @@ function checkClock() {
 
 function stop() {
     clearInterval(runningTime);
+
+    //Esto hace que se reinicie el reloj cuando se presiona stop
     clockValueMin.textContent = initialValueMin
     clockValueSeg.textContent = initialValueSeg
+
     switchStartStopButton();
     console.log("Stopped running time forced by user");
 }
@@ -72,6 +78,10 @@ function customizeClose(){
 }
 
 function selectOption(e){
+    if(restTime.classList.contains("pressed")){
+        swit
+        
+    }
     if(customizeOptionsList[e].checked){
         for(let i=0; i<customizeOptionsList.length; i++){
             if(i!=e){
@@ -80,7 +90,7 @@ function selectOption(e){
         };
         switch(e) {
             case 0:
-                initialValueMin = "10";
+                initialValueMin = "01";
                 initialValueSeg = "00";
                 clockValueMin.textContent = initialValueMin
                 clockValueSeg.textContent = initialValueSeg
@@ -133,20 +143,23 @@ for(let i=0; i<customizeOptionsList.length; i++){
     }
 }
 
-function toggleTypeOfWork(){
+function switchTypeOfWork(){
     workTime.classList.toggle("pressed")
     restTime.classList.toggle("pressed")
 
+
     if(workTime.classList.contains("pressed")){
         //si está presionado trabajar
+            //Habilitar el modo oscuro
     }
 
     if(restTime.classList.contains("pressed")){
         //si está presionado descansar
+            //Habilitar el modo claro
     }
 
 };
 
-workTime.addEventListener('click', toggleTypeOfWork)
-restTime.addEventListener('click', toggleTypeOfWork)
+workTime.addEventListener('click', switchTypeOfWork)
+restTime.addEventListener('click', switchTypeOfWork)
 
