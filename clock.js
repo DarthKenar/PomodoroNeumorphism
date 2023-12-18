@@ -15,7 +15,23 @@ var restTime = document.getElementById("restTime")
 
 var initialValueMinRest = "05"
 var initialValueSegRest = "00"
-
+mostrarNotificacion();
+function mostrarNotificacion() {
+    // Verificar si el navegador soporta la API de Notificaciones
+    if (!("Notification" in window)) {
+      alert("Este navegador no soporta notificaciones");
+    } else if (Notification.permission === "granted") {
+      // Si la permisión está concedida, mostrar la notificación
+      var notificacion = new Notification("¡Gracias por permitir la notificación!");
+    } else if (Notification.permission !== "denied") {
+      // Si no se ha solicitado permisión, solicitarla
+      Notification.requestPermission().then(function (permission) {
+        if (permission === "granted") {
+          var notificacion = new Notification("¡Permiso concedido!");
+        }
+      });
+    }
+  }
 function switchStartStopButton() {
     startButton.classList.toggle("hidden");
     stopButton.classList.toggle("hidden");
@@ -93,7 +109,7 @@ function selectOption(e){
         };
         switch(e) {
             case 0:
-                initialValueMin = "10";
+                initialValueMin = "1";
                 initialValueSeg = "00";
                 initialValueMinRest = "02"
                 initialValueSegRest = "00"
