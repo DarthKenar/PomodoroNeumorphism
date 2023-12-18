@@ -16,6 +16,12 @@ var restTime = document.getElementById("restTime")
 var initialValueMinRest = "05"
 var initialValueSegRest = "00"
 mostrarNotificacion();
+
+function reproducirAlarma() {
+    let alarma = new Audio("./alarma.mp3");
+    alarma.play();
+}
+
 function mostrarNotificacion() {
     // Verificar si el navegador soporta la API de Notificaciones
     if (!("Notification" in window)) {
@@ -59,7 +65,9 @@ function checkClock() {
 
         //Cambia a modo rest o work dependiendo del modo anterior
         switchTypeOfWork();
+        reproducirAlarma();
         mostrarNotificacion();
+
         // audio = new Audio("https://drive.google.com/file/d/1xQ6D76vi0_1byf3nM5CV9xfbDxQM5Rdh/view")
         // audio2 = new Audio("https://www.mediafire.com/file/j5qcrwepzlizc7f/alarm-clock-short-6402.mp3")
         // audio.play();
