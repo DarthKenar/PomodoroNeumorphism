@@ -13,6 +13,9 @@ var customizeButtonClose = document.getElementById("customizeButtonClose")
 var workTime = document.getElementById("workTime")
 var restTime = document.getElementById("restTime")
 
+var initialValueMinRest = "05"
+var initialValueSegRest = "00"
+
 function switchStartStopButton() {
     startButton.classList.toggle("hidden");
     stopButton.classList.toggle("hidden");
@@ -79,8 +82,8 @@ function customizeClose(){
 
 function selectOption(e){
     if(restTime.classList.contains("pressed")){
-        swit
-        
+        switchTypeOfWork();
+        //Si esta en modo descanso poner los valores en el reloj correspondientes al descnaso
     }
     if(customizeOptionsList[e].checked){
         for(let i=0; i<customizeOptionsList.length; i++){
@@ -90,26 +93,34 @@ function selectOption(e){
         };
         switch(e) {
             case 0:
-                initialValueMin = "01";
+                initialValueMin = "10";
                 initialValueSeg = "00";
+                initialValueMinRest = "02"
+                initialValueSegRest = "00"
                 clockValueMin.textContent = initialValueMin
                 clockValueSeg.textContent = initialValueSeg
                 break;
             case 1:
                 initialValueMin = "20";
                 initialValueSeg = "00";
+                initialValueMinRest = "05"
+                initialValueSegRest = "00"
                 clockValueMin.textContent = initialValueMin
                 clockValueSeg.textContent = initialValueSeg
                 break;
             case 2:
                 initialValueMin = "40";
                 initialValueSeg = "00";
+                initialValueMinRest = "08"
+                initialValueSegRest = "00"
                 clockValueMin.textContent = initialValueMin
                 clockValueSeg.textContent = initialValueSeg
                 break;
             case 3:
                 initialValueMin = "60";
                 initialValueSeg = "00";
+                initialValueMinRest = "10"
+                initialValueSegRest = "00"
                 clockValueMin.textContent = initialValueMin
                 clockValueSeg.textContent = initialValueSeg
                 break;
@@ -147,13 +158,25 @@ function switchTypeOfWork(){
     workTime.classList.toggle("pressed")
     restTime.classList.toggle("pressed")
 
+    //Si se está ejecutando el clock
+    if(startButton.classList.contains("hidden")){
+        stop();
+    }
 
     if(workTime.classList.contains("pressed")){
+
+        clockValueMin.textContent = initialValueMin
+        clockValueSeg.textContent = initialValueSeg
+
         //si está presionado trabajar
             //Habilitar el modo oscuro
     }
 
     if(restTime.classList.contains("pressed")){
+
+        clockValueMin.textContent = initialValueMinRest
+        clockValueSeg.textContent = initialValueSegRest
+
         //si está presionado descansar
             //Habilitar el modo claro
     }
