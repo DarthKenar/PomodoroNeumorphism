@@ -185,8 +185,8 @@ function portuguesLenguageSelected(){
     title1.textContent = "Pomodoro Neumorfismo"
     title2.textContent = title1.textContent
 
-    workTime.textContent = "Trabajar en portugues"
-    restTime.textContent = "Descansar en portugues"
+    workTime.textContent = "Trabalhar"
+    restTime.textContent = "Repouso"
 
     startButton.textContent = "Começar"
     stopButton.textContent = "Parar"
@@ -228,8 +228,8 @@ function japaneseLenguageSelected(){
     title1.textContent = "ポモドーロニューモーフィズム"
     title2.textContent = title1.textContent
 
-    workTime.textContent = "Trabajar en Japones"
-    restTime.textContent = "Descansar en Japones"
+    workTime.textContent = "仕事"
+    restTime.textContent = "休憩"
 
     startButton.textContent = "始める"
     stopButton.textContent = "停止"
