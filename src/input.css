@@ -27,17 +27,25 @@ body {
     height: 100vh;
 }
 
-.work-color-body{
-    color: bisque;
+.work-color-background{
     background-color: #282828;
     transition: all 0.5s ease;
 }
 
 
-.rest-color-body{
-    color: #282828;
-    background-color: #e0e0e0;
+.rest-color-background{
     transition: all 0.5s ease;
+    background-color: #e0e0e0;
+}
+
+.work-color-text{
+    transition: all 0.5s ease;
+    color: bisque;
+}
+
+.rest-color-text{
+    transition: all 0.5s ease;
+    color: #282828;
 }
 
 nav button {
@@ -326,12 +334,7 @@ main section header #workTime {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    border: 4px solid #282828;
     border-radius: 25px;
-    box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5),
-        inset 4px 4px 10px rgba(0, 0, 0, 0.5),
-        inset -4px -4px 10px rgba(67, 67, 67, 0.3),
-        4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Estilo para pantallas de menos de 600px (celulares) */
@@ -357,7 +360,6 @@ main section header #workTime {
     display: inline-flex;
     align-items: center;
     cursor: pointer;
-    color: #394a56;
 }
 
 .toggle {

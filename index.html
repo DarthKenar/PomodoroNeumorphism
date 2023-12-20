@@ -6,8 +6,8 @@
     <link href="./dist/output.css" rel="stylesheet">
     <title id="title1">Pomodoro Neumorfista</title>
 </head>
-    <div id="customizeModal" class="modal glass">
-        <div class="modal-content">
+    <div id="customizeModal" class="modal glass work-color-text">
+        <div id="customizeModalContent" class="modal-content work-color-marco">
             <span id="customizeButtonClose" class="closeModal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </span>
@@ -56,8 +56,8 @@
             </section>
         </div>
     </div>
-    <div id="lenguageModal" class="modal glass">
-        <div class="modal-content">
+    <div id="lenguageModal" class="modal glass work-color-text">
+        <div id="lenguageModalContent" class="modal-content work-color-marco">
             <span id="lenguageButtonClose" class="closeModal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </span>
@@ -81,7 +81,7 @@
             </section>
         </div>
     </div>
-    <body id="body" class="work-color-body">
+    <body id="body" class="work-color-background work-color-text">
         <header class="flex justify-between w-full">
             <h2 id="title2" class="marco work-color-marco">Pomodoro Neumorfista</h2>
             <nav>
@@ -116,11 +116,11 @@
                 </button>
             </section>
             <aside name="panel" class="w-full lg:w-2/5 h-full ">
-                <div class="flex text-xl marco p-4 my-4 w-full">
+                <div id="taskTitle" class="flex text-xl marco work-color-marco p-4 my-4 w-full">
                     <h2 id="tasksLabel" class="px-2 pl-0">Tasks</h2>
                     <h3 id="tasksCounter" class="px-2">0</h3>
                 </div>
-                <ul class="text-base marco p-4 my-4" id="tasks">
+                <ul id="tasks" class="text-base marco work-color-marco p-4 my-4">
                     <li>
                         <label id="newTask" contenteditable>Escribe aquí...</label>
                         <button id="newTaskButton" type="button">Guardar</button>

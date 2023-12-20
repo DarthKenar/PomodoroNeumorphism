@@ -10,7 +10,14 @@ var customizeModal = document.getElementById("customizeModal")
 var customizeOptionsList = customizeModal.getElementsByTagName("input")
 var customizeButtonClose = document.getElementById("customizeButtonClose")
 
+var taskTitle = document.getElementById("taskTitle")
+var tasks = document.getElementById("tasks")
+
+var lenguageModalContent = document.getElementById("lenguageModalContent")
+var customizeModalContent = document.getElementById("customizeModalContent")
+
 var title = document.getElementById("title2")
+var customizeModal = document.getElementById("lenguageModal")
 
 var workTime = document.getElementById("workTime")
 var restTime = document.getElementById("restTime")
@@ -30,15 +37,34 @@ function playAlarm() {
 
 function restStylesToggle(){
     
-    body.classList.toggle("work-color-body")
-    body.classList.toggle("rest-color-body")
+    body.classList.toggle("work-color-background")
+    body.classList.toggle("rest-color-background")
+    body.classList.toggle("work-color-text")
+    body.classList.toggle("rest-color-text")
+
+    customizeModal.classList.toggle("work-color-text")
+    customizeModal.classList.toggle("rest-color-text")
+
+    lenguageModal.classList.toggle("work-color-text")
+    lenguageModal.classList.toggle("rest-color-text")
+
+    customizeModalContent.classList.toggle("work-color-marco")
+    customizeModalContent.classList.toggle("rest-color-marco")
+
+    lenguageModalContent.classList.toggle("work-color-marco")
+    lenguageModalContent.classList.toggle("rest-color-marco")
+
+    taskTitle.classList.toggle("work-color-marco")
+    taskTitle.classList.toggle("rest-color-marco")
+    
+    tasks.classList.toggle("work-color-marco")
+    tasks.classList.toggle("rest-color-marco")
 
     clock.classList.toggle("work-color-marco")
     clock.classList.toggle("rest-color-marco")
     
     title.classList.toggle("work-color-marco")
     title.classList.toggle("rest-color-marco")
-
 
 }
 
