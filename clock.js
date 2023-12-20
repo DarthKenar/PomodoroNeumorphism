@@ -15,20 +15,36 @@ var restTime = document.getElementById("restTime")
 
 var initialValueMinRest = "05"
 var initialValueSegRest = "00"
-mostrarNotificacion();
 
-function reproducirAlarma() {
-    let alarma = new Audio("./alarma.mp3");
-    alarma.play();
+var body = document.getElementById("body")
+var clock = document.getElementById("clock")
+
+showNotification();
+
+function playAlarm() {
+    let alarm = new Audio("./alarma.mp3");
+    alarm.play();
 }
 
-function mostrarNotificacion() {
+function restStylesToggle(){
+    
+    body.classList.toggle("work-color-body")
+    body.classList.toggle("rest-color-body")
+
+    clock.classList.toggle("work-color-clock")
+    clock.classList.toggle("rest-color-clock")
+    
+    
+
+}
+
+function showNotification() {
     // Verificar si el navegador soporta la API de Notificaciones
     if (!("Notification" in window)) {
       alert("Este navegador no soporta notificaciones");
     } else if (Notification.permission === "granted") {
       // Si la permisión está concedida, mostrar la notificación
-      var notificacion = new Notification("¡Gracias por permitir la notificación!");
+      var notificacion = new Notification("¡Es hora de relajarse!");
     } else if (Notification.permission !== "denied") {
       // Si no se ha solicitado permisión, solicitarla
       Notification.requestPermission().then(function (permission) {
@@ -65,9 +81,8 @@ function checkClock() {
 
         //Cambia a modo rest o work dependiendo del modo anterior
         switchTypeOfWork();
-        reproducirAlarma();
-        mostrarNotificacion();
-
+        playAlarm();
+        showNotification();
         // audio = new Audio("https://drive.google.com/file/d/1xQ6D76vi0_1byf3nM5CV9xfbDxQM5Rdh/view")
         // audio2 = new Audio("https://www.mediafire.com/file/j5qcrwepzlizc7f/alarm-clock-short-6402.mp3")
         // audio.play();
@@ -180,9 +195,9 @@ for(let i=0; i<customizeOptionsList.length; i++){
 }
 
 function switchTypeOfWork(){
+    restStylesToggle();
     workTime.classList.toggle("pressed")
     restTime.classList.toggle("pressed")
-
     //Si se está ejecutando el clock
     if(startButton.classList.contains("hidden")){
         stop();

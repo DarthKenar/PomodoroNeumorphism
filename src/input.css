@@ -11,20 +11,40 @@ button {
 
 * {
     font-family: monospace;
-    color: bisque;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: monospace,'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+
+
 body {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100vh;
 }
+
+.work-color-body{
+    color: bisque;
+    background-color: #282828;
+    transition: all 0.5s ease;
+}
+
+
+.rest-color-body{
+    color: #282828;
+    background-color: #e0e0e0;
+    transition: all 0.5s ease;
+}
+
 nav button {
     @media not all and (min-width: 1024px) {
     }
 }
+
 nav button span {
     @media not all and (min-width: 1024px) {
         display: none;
@@ -37,12 +57,24 @@ nav button span {
     aspect-ratio: 1/1;
     justify-content: center;
     align-items: center;
-    border: 4px solid #252525;
     border-radius: 50%;
+}
+
+.work-color-clock{
+    transition: all 0.5s ease;
+    border: 4px solid #252525;
     box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5),
         inset 4px 4px 10px rgba(0, 0, 0, 0.5),
         inset -4px -4px 10px rgba(67, 67, 67, 0.3),
         4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+.rest-color-clock{
+    transition: all 0.5s ease;
+    border: 4px solid #e0e0e0;
+    box-shadow: -4px -4px 10px #bebebe,
+        inset 4px 4px 10px #ffffff,
+        inset -4px -4px 10px #bebebe,
+        4px 4px 10px #ffffff;
 }
 
 .marco{
