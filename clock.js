@@ -10,6 +10,8 @@ var customizeModal = document.getElementById("customizeModal")
 var customizeOptionsList = customizeModal.getElementsByTagName("input")
 var customizeButtonClose = document.getElementById("customizeButtonClose")
 
+var title = document.getElementById("title2")
+
 var workTime = document.getElementById("workTime")
 var restTime = document.getElementById("restTime")
 
@@ -31,10 +33,12 @@ function restStylesToggle(){
     body.classList.toggle("work-color-body")
     body.classList.toggle("rest-color-body")
 
-    clock.classList.toggle("work-color-clock")
-    clock.classList.toggle("rest-color-clock")
+    clock.classList.toggle("work-color-marco")
+    clock.classList.toggle("rest-color-marco")
     
-    
+    title.classList.toggle("work-color-marco")
+    title.classList.toggle("rest-color-marco")
+
 
 }
 
