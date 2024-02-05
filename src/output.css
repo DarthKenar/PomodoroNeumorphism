@@ -744,9 +744,17 @@ li {
   padding: 10px;
   margin: 0px 10px 20px;
   border-radius: 10px;
+}
+
+.work-task {
   background: linear-gradient(145deg, #242424, #2b2b2b);
   box-shadow:  4px 4px 8px #1c1c1c,
                 -4px -4px 8px #343434;
+}
+
+.rest-task {
+  box-shadow: inset 4px 4px 8px #bebebe,
+                inset -4px -4px 8px #fff;
 }
 
 li div{
