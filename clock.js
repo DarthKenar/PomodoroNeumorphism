@@ -15,7 +15,7 @@ var lenguageButtonOpen = document.getElementById("lenguageButtonOpen")
 
 var taskTitle = document.getElementById("taskTitle")
 var tasks = document.getElementById("tasks")
-var task = document.getElementById("task")
+var taskContainer = document.getElementById("taskContainer")
 
 var lenguageModalContent = document.getElementById("lenguageModalContent")
 var customizeModalContent = document.getElementById("customizeModalContent")
@@ -64,8 +64,8 @@ function restStylesToggle(){
     tasks.classList.toggle("work-color-marco")
     tasks.classList.toggle("rest-color-marco")
 
-    task.classList.toggle("work-task")
-    task.classList.toggle("rest-task")
+    taskContainer.classList.toggle("work-task")
+    taskContainer.classList.toggle("rest-task")
 
     clock.classList.toggle("work-color-marco")
     clock.classList.toggle("rest-color-marco")

@@ -6,6 +6,7 @@ var completedTasks = [];
 var pendingTasks = [];
 
 function focusInTextAtTheEnd(elemento) {
+    
     // Verificar si el elemento tiene texto
     if (elemento.childNodes.length > 0) {
         var ultimoNodo = elemento.childNodes[elemento.childNodes.length - 1];
@@ -135,4 +136,5 @@ newTask.addEventListener('keydown',function(event){
         };
     };
 });
+
 newTaskButton.addEventListener("click", saveTask);
