@@ -1,4 +1,4 @@
-# POMODORO TIMER NEUROMORFISTA
+# POMODORO TIMER NEUMORFISTA
 
 Utilízalo en:
 [https://darthkenar.github.io/PomodoroNeumorphism/](https://darthkenar.github.io/PomodoroNeumorphism/)
