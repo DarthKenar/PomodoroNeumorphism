@@ -5,10 +5,13 @@ var initialValueMin = clockValueMin.textContent
 var initialValueSeg = clockValueSeg.textContent
 var startButton = document.getElementById("startButton");
 var stopButton = document.getElementById("stopButton")
-var customizeButtonOpen = document.getElementById("customizeButtonOpen")
 var customizeModal = document.getElementById("customizeModal")
 var customizeOptionsList = customizeModal.getElementsByTagName("input")
 var customizeButtonClose = document.getElementById("customizeButtonClose")
+
+var customizeButtonOpen = document.getElementById("customizeButtonOpen")
+var restartSessionButton = document.getElementById("restartSessionButton")
+var lenguageButtonOpen = document.getElementById("lenguageButtonOpen")
 
 var taskTitle = document.getElementById("taskTitle")
 var tasks = document.getElementById("tasks")
@@ -65,6 +68,29 @@ function restStylesToggle(){
     
     title.classList.toggle("work-color-marco")
     title.classList.toggle("rest-color-marco")
+    
+    //buttons
+
+    workTime.classList.toggle("work-button")
+    workTime.classList.toggle("rest-button")
+
+    restTime.classList.toggle("work-button")
+    restTime.classList.toggle("rest-button")
+
+    //header buttons
+    customizeButtonOpen.classList.toggle("work-button")
+    customizeButtonOpen.classList.toggle("rest-button")
+
+    restartSessionButton.classList.toggle("work-button")
+    restartSessionButton.classList.toggle("rest-button")
+
+    lenguageButtonOpen.classList.toggle("work-button")
+    lenguageButtonOpen.classList.toggle("rest-button")
+
+    startButton.classList.toggle("work-button")
+    startButton.classList.toggle("rest-button")
+    stopButton.classList.toggle("work-button")
+    stopButton.classList.toggle("rest-button")
 
 }
 
@@ -135,10 +161,16 @@ function stop() {
     clearInterval(runningTime);
 
     //Esto hace que se reinicie el reloj cuando se presiona stop
-    clockValueMin.textContent = initialValueMin
-    clockValueSeg.textContent = initialValueSeg
+    if(startButton.classList.contains("work-button")){
+        clockValueMin.textContent = initialValueMin;
+        clockValueSeg.textContent = initialValueSeg;
+    }else{
+        clockValueMin.textContent = initialValueMinRest
+        clockValueSeg.textContent = initialValueSegRest
+    }
 
     switchStartStopButton();
+    
     console.log("Stopped running time forced by user");
 }
 
@@ -151,7 +183,7 @@ function customizeClose(){
 }
 
 function selectOption(e){
-    if(restTime.classList.contains("pressed")){
+    if(restTime.classList.contains("rest-pressed")){
         switchTypeOfWork();
         //Si esta en modo descanso poner los valores en el reloj correspondientes al descnaso
     }
@@ -226,14 +258,14 @@ for(let i=0; i<customizeOptionsList.length; i++){
 
 function switchTypeOfWork(){
     restStylesToggle();
-    workTime.classList.toggle("pressed")
-    restTime.classList.toggle("pressed")
+    workTime.classList.toggle("work-pressed")
+    restTime.classList.toggle("rest-pressed")
     //Si se está ejecutando el clock
     if(startButton.classList.contains("hidden")){
         stop();
     }
 
-    if(workTime.classList.contains("pressed")){
+    if(workTime.classList.contains("work-pressed")){
 
         clockValueMin.textContent = initialValueMin
         clockValueSeg.textContent = initialValueSeg
@@ -242,7 +274,7 @@ function switchTypeOfWork(){
             //Habilitar el modo oscuro
     }
 
-    if(restTime.classList.contains("pressed")){
+    if(restTime.classList.contains("rest-pressed")){
 
         clockValueMin.textContent = initialValueMinRest
         clockValueSeg.textContent = initialValueSegRest

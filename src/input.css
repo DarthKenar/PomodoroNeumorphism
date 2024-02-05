@@ -126,23 +126,42 @@ li div{
     padding-right: 1rem/* 16px */;
 }
 
-button {
+.work-button {
     border-radius: 10px;
     background: linear-gradient(145deg, #242424, #2b2b2b);
     box-shadow:  4px 4px 8px #1c1c1c,
                 -4px -4px 8px #343434;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
-button:hover {
+.work-button:hover {
     box-shadow: none;
     border-width: 1px solid bisque;
 }
 
-button:active {
+.work-button:active {
     background: #282828;
     box-shadow: inset 4px 4px 8px #1c1c1c,
                 inset -4px -4px 8px #343434;
+}
+
+.rest-button {
+    border-radius: 10px;
+    box-shadow: -4px -4px 10px #fff,
+    inset 4px 4px 10px #bebebe,
+    inset -4px -4px 10px #fff,
+    4px 4px 10px #bebebe;
+    transition: all 0.5s ease;
+}
+
+.rest-button:hover {
+    box-shadow: none;
+    border-width: 1px solid bisque;
+}
+
+.rest-button:active {
+    box-shadow: inset 4px 4px 8px #bebebe,
+                inset -4px -4px 8px #fff;
 }
 
 footer{
@@ -242,8 +261,6 @@ main section header button {
     padding: 8px;
 }
 
-
-
 main section header #restTime {
     border-radius: 0px 10px 10px 0px;
     margin-left: 0px;
@@ -254,10 +271,14 @@ main section header #workTime {
     margin-right: 0px;
 }
 
-.pressed {
+.work-pressed {
     background: #282828;
     box-shadow: inset 4px 4px 8px #1c1c1c,
                 inset -4px -4px 8px #343434;
+}
+.rest-pressed {
+    box-shadow: inset 4px 4px 8px #bebebe,
+                inset -4px -4px 8px #fff;
 }
 
 .modal-content .optionsSection {

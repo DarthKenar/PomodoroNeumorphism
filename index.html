@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./dist/output.css" rel="stylesheet">
+    <link href="./src/output.css" rel="stylesheet">
     <title id="title1">Pomodoro Neumorfista</title>
 </head>
     <div id="customizeModal" class="modal glass work-color-text">
@@ -85,33 +85,33 @@
         <header class="flex justify-between w-full">
             <h2 id="title2" class="marco work-color-marco">Pomodoro Neumorfista</h2>
             <nav>
-                <button id="customizeButtonOpen">
+                <button id="customizeButtonOpen" class="work-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
                     <span id="customizeLabel">Personalizar</span>
                 </button>
-                <button>
+                <button id="restartSessionButton" class="work-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rotate-ccw"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
                     <span id="restartSessionLabel">Reiniciar sesión</span>
                 </button>
-                <button id="lenguageButtonOpen">
+                <button id="lenguageButtonOpen" class="work-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                    <span id="lenguageLabel">Lenguage</span>
+                    <span id="lenguageLabel">Lenguaje</span>
                 </button>
             </nav>
         </header>
         <main class="lg:flex h-full p-4 w-full">
             <section name="timer" class="lg:w-3/5 flex flex-col items-center justify-center lg:h-full ">
                 <header>
-                    <button id="workTime" class="pressed">Work!</button>
-                    <button id="restTime">Rest!</button>
+                    <button id="workTime" class="work-pressed work-button">Work!</button>
+                    <button id="restTime" class="work-button">Rest!</button>
                 </header>
                 <div id="clock" class="clock work-color-marco">
                     <h1 id="clockValueMin" class="text-4xl">20</h1><h1 class="text-4xl">:</h1><h1 id="clockValueSeg" class="text-4xl">00</h1>
                 </div>
-                <button id="startButton" class="btn-clock">
+                <button id="startButton" class="btn-clock work-button">
                     Start
                 </button>
-                <button id="stopButton" class="btn-clock hidden">
+                <button id="stopButton" class="btn-clock hidden work-button">
                     Stop
                 </button>
             </section>
