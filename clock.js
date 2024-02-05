@@ -96,6 +96,26 @@ function restStylesToggle(){
     stopButton.classList.toggle("work-button")
     stopButton.classList.toggle("rest-button")
 
+    //Task buttons
+    for (let i = 0; i < pendingTasks.length; i++){
+
+        //Obtengo todos los botones de la tarea con id "i"
+        upTaskButton = document.getElementById(`upTaskButton-${i}`)
+        downTaskButton = document.getElementById(`upTaskButton-${i}`)
+        editTaskButton = document.getElementById(`upTaskButton-${i}`)
+        upTaskButton = document.getElementById(`upTaskButton-${i}`)
+
+        //Cambio sus estilos
+        upTaskButton.classList.toggle("work-button")
+        upTaskButton.classList.toggle("rest-button")
+        downTaskButton.classList.toggle("work-button")
+        downTaskButton.classList.toggle("rest-button")
+        editTaskButton.classList.toggle("work-button")
+        editTaskButton.classList.toggle("rest-button")
+        deleteTaskButton.classList.toggle("work-button")
+        deleteTaskButton.classList.toggle("rest-button")
+
+    }
 }
 
 function showNotification() {
