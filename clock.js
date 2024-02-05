@@ -195,7 +195,7 @@ function selectOption(e){
         };
         switch(e) {
             case 0:
-                initialValueMin = "1";
+                initialValueMin = "10";
                 initialValueSeg = "00";
                 initialValueMinRest = "02"
                 initialValueSegRest = "00"
