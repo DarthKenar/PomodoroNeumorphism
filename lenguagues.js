@@ -90,11 +90,6 @@ var newTaskPlaceHolders = ["","Escribe aquí...","Write here...","Escreva aqui..
 function spanishLenguageSelected(){
     console.log("Switched to Spanish")
 
-    esLabel.textContent = "Español"
-    enLabel.textContent = "Inglés"
-    brLabel.textContent = "Portugués"
-    jpLabel.textContent = "Japonés"
-
     title1.textContent = "Pomodoro Neumorfista"
     title2.textContent = title1.textContent
 
@@ -134,11 +129,6 @@ esBtn.addEventListener("click",spanishLenguageSelected);
 function englishLenguageSelected(){
     console.log("Switched to English")
 
-    esLabel.textContent = "Spanish"
-    enLabel.textContent = "English"
-    brLabel.textContent = "portuguese"
-    jpLabel.textContent = "Japanese"
-
     title1.textContent = "Pomodoro Neumorphism"
     title2.textContent = title1.textContent
 
@@ -177,11 +167,6 @@ enBtn.addEventListener("click",englishLenguageSelected);
 function portuguesLenguageSelected(){
     console.log("Switched to Portugueis")
 
-    esLabel.textContent = "Espanhol"
-    enLabel.textContent = "Inglês"
-    brLabel.textContent = "Português"
-    jpLabel.textContent = "Japonês"
-
     title1.textContent = "Pomodoro Neumorfismo"
     title2.textContent = title1.textContent
 
@@ -219,11 +204,6 @@ brBtn.addEventListener("click",portuguesLenguageSelected);
 // Japonés
 function japaneseLenguageSelected(){
     console.log("Switched to Japanese")
-
-    esLabel.textContent = "スペイン語"
-    enLabel.textContent = "英語"
-    brLabel.textContent = "ポルトガル語"
-    jpLabel.textContent = "日本語"
 
     title1.textContent = "ポモドーロニューモーフィズム"
     title2.textContent = title1.textContent
