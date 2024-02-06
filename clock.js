@@ -101,7 +101,7 @@ function restStylesToggle(){
     //Task buttons
     for (let i = 0; i < pendingTasks.length; i++){
         if(pendingTasks[i] !== undefined){
-            
+
             //Obtengo todos los botones de la tarea con id "i"
             upTaskButton = document.getElementById(`upTaskButton-${i}`)
             downTaskButton = document.getElementById(`downTaskButton-${i}`)
@@ -204,14 +204,17 @@ function stop() {
 
 function customizeOpen(){
     document.getElementById('customizeModal').style.display = 'block';
+    console.log("Settings Modal Opened")
 }
 
 function customizeClose(){
     document.getElementById('customizeModal').style.display = 'none';
+    console.log("Settings Modal Closed")
 }
 
 //Cuando selecciona una opcion (modo de pomodoro clock)
 function selectOption(e){
+    console.log("Option Selected")
     if(restTime.classList.contains("rest-pressed")){
         //Si esta en modo descanso poner los valores en el reloj correspondientes al descnaso
         switchTypeOfWork();

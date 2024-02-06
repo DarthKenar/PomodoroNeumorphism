@@ -72,12 +72,12 @@ window.onclick = function(event) {
 }
 
 function lenguageOpen(){
-    console.log("Modal Opened")
+    console.log("Lenguage Modal Opened")
     lenguageModal.style.display = 'block';
 }
 
 function lenguageClose(){
-    console.log("Modal Opened")
+    console.log("Lenguage Modal Closed")
     lenguageModal.style.display = 'none';
 }
 
