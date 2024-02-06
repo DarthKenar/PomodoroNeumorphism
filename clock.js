@@ -77,9 +77,11 @@ function restStylesToggle(){
 
     workTime.classList.toggle("work-button")
     workTime.classList.toggle("rest-button")
+    workTime.classList.toggle("work-pressed")
 
     restTime.classList.toggle("work-button")
     restTime.classList.toggle("rest-button")
+    restTime.classList.toggle("rest-pressed")
 
     //header buttons
     customizeButtonOpen.classList.toggle("work-button")
@@ -98,23 +100,24 @@ function restStylesToggle(){
 
     //Task buttons
     for (let i = 0; i < pendingTasks.length; i++){
+        if(pendingTasks[i] !== undefined){
+            
+            //Obtengo todos los botones de la tarea con id "i"
+            upTaskButton = document.getElementById(`upTaskButton-${i}`)
+            downTaskButton = document.getElementById(`downTaskButton-${i}`)
+            editTaskButton = document.getElementById(`editTaskButton-${i}`)
+            deleteTaskButton = document.getElementById(`deleteTaskButton-${i}`)
 
-        //Obtengo todos los botones de la tarea con id "i"
-        upTaskButton = document.getElementById(`upTaskButton-${i}`)
-        downTaskButton = document.getElementById(`upTaskButton-${i}`)
-        editTaskButton = document.getElementById(`upTaskButton-${i}`)
-        upTaskButton = document.getElementById(`upTaskButton-${i}`)
-
-        //Cambio sus estilos
-        upTaskButton.classList.toggle("work-button")
-        upTaskButton.classList.toggle("rest-button")
-        downTaskButton.classList.toggle("work-button")
-        downTaskButton.classList.toggle("rest-button")
-        editTaskButton.classList.toggle("work-button")
-        editTaskButton.classList.toggle("rest-button")
-        deleteTaskButton.classList.toggle("work-button")
-        deleteTaskButton.classList.toggle("rest-button")
-
+            //Cambio sus estilos
+            upTaskButton.classList.toggle("work-button")
+            upTaskButton.classList.toggle("rest-button")
+            downTaskButton.classList.toggle("work-button")
+            downTaskButton.classList.toggle("rest-button")
+            editTaskButton.classList.toggle("work-button")
+            editTaskButton.classList.toggle("rest-button")
+            deleteTaskButton.classList.toggle("work-button")
+            deleteTaskButton.classList.toggle("rest-button")
+        }
     }
 }
 
@@ -135,6 +138,7 @@ function showNotification() {
     }
   }
 function switchStartStopButton() {
+    console.log("Switching buttons start/stop")
     startButton.classList.toggle("hidden");
     stopButton.classList.toggle("hidden");
 }
@@ -206,10 +210,11 @@ function customizeClose(){
     document.getElementById('customizeModal').style.display = 'none';
 }
 
+//Cuando selecciona una opcion (modo de pomodoro clock)
 function selectOption(e){
     if(restTime.classList.contains("rest-pressed")){
-        switchTypeOfWork();
         //Si esta en modo descanso poner los valores en el reloj correspondientes al descnaso
+        switchTypeOfWork();
     }
     if(customizeOptionsList[e].checked){
         for(let i=0; i<customizeOptionsList.length; i++){
@@ -282,10 +287,9 @@ for(let i=0; i<customizeOptionsList.length; i++){
 
 function switchTypeOfWork(){
     restStylesToggle();
-    workTime.classList.toggle("work-pressed")
-    restTime.classList.toggle("rest-pressed")
     //Si se está ejecutando el clock
     if(startButton.classList.contains("hidden")){
+        console.log("Deteniendo temporizador (forzado por cambio de tipo de trabajo)")
         stop();
     }
 
@@ -293,7 +297,6 @@ function switchTypeOfWork(){
 
         clockValueMin.textContent = initialValueMin
         clockValueSeg.textContent = initialValueSeg
-
         //si está presionado trabajar
             //Habilitar el modo oscuro
     }
@@ -302,7 +305,6 @@ function switchTypeOfWork(){
 
         clockValueMin.textContent = initialValueMinRest
         clockValueSeg.textContent = initialValueSegRest
-
         //si está presionado descansar
             //Habilitar el modo claro
     }

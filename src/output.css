@@ -919,7 +919,6 @@ main section header #workTime {
 }
 
 .work-pressed {
-  background: #282828;
   box-shadow: inset 4px 4px 8px #1c1c1c,
                 inset -4px -4px 8px #343434;
 }
