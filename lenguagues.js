@@ -120,6 +120,7 @@ function spanishLenguageSelected(){
         newTask.textContent = "Escribe aquí..."
     }
 
+    lenguageClose();
     //Agregar efecto que cuando hago click desaparece el texto contenido de cada objeto que se traduce y aparece el nuevo.
 };
 
@@ -158,7 +159,8 @@ function englishLenguageSelected(){
     if(newTaskPlaceHolders.includes(newTask.textContent)){
         newTask.textContent = "Write here..."
     }
-        
+
+    lenguageClose();
 };
 
 enBtn.addEventListener("click",englishLenguageSelected);
@@ -196,6 +198,8 @@ function portuguesLenguageSelected(){
     if(newTaskPlaceHolders.includes(newTask.textContent)){
         newTask.textContent = "Escreva aqui..."
     }
+
+    lenguageClose();
         
 };
 
@@ -233,7 +237,9 @@ function japaneseLenguageSelected(){
     if(newTaskPlaceHolders.includes(newTask.textContent)){
         newTask.textContent = "ここに書いてください..."
     }
-        
+    
+    lenguageClose();
+    
 };
 
 jpBtn.addEventListener("click",japaneseLenguageSelected);

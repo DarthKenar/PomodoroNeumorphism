@@ -9,6 +9,8 @@ var customizeModal = document.getElementById("customizeModal")
 var customizeOptionsList = customizeModal.getElementsByTagName("input")
 var customizeButtonClose = document.getElementById("customizeButtonClose")
 
+var footer = document.getElementsByTagName("footer")[0]
+
 var customizeButtonOpen = document.getElementById("customizeButtonOpen")
 var restartSessionButton = document.getElementById("restartSessionButton")
 var lenguageButtonOpen = document.getElementById("lenguageButtonOpen")
@@ -98,8 +100,12 @@ function restStylesToggle(){
     stopButton.classList.toggle("work-button")
     stopButton.classList.toggle("rest-button")
 
+    footer.classList.toggle("work-footer")
+    footer.classList.toggle("rest-footer")
+
     //Task buttons
     for (let i = 0; i < pendingTasks.length; i++){
+        console.log("revisando estilos en los botones de la tarea")
         if(pendingTasks[i] !== undefined){
 
             //Obtengo todos los botones de la tarea con id "i"

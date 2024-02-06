@@ -40,10 +40,17 @@ function downTask(){
 };
 
 function refreshTasks(){
+    console.log("refreshTasks()")
+    //limpia las tareas eliminadas de la lista (undefined)
+    pendingTasks = pendingTasks.filter((text) => text !== undefined);
+    console.log(pendingTasks)
+    console.log(pendingTasks[0])
+    //redibuja las tareas de la lista de tareas en el DOM
+    
     //Actualizar DOM
         //Mostrar Tareas Pendientes
         //Mostrar Tareas Completadas
-    console.log("refreshTasks()")
+    
 };
 function focusNewTask(){
     newTask.blur()
