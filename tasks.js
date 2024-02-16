@@ -5,6 +5,7 @@ var tasksCounter = document.getElementById("tasksCounter")
 var completedTasks = [];
 var pendingTasks = [];
 var tasksEnumerator = 0
+
 function focusInTextAtTheEnd(elemento) {
 
     // Verificar si el elemento tiene texto
@@ -50,8 +51,8 @@ function refreshTasks(){
     //Actualizar DOM
         //Mostrar Tareas Pendientes
         //Mostrar Tareas Completadas
-    
 };
+
 function focusNewTask(){
     newTask.blur()
     newTask.textContent = ""
@@ -91,14 +92,20 @@ function deleteTask(id) {
     tasksCounter.textContent = parseInt(tasksCounter.textContent) - 1
     //eliminamos la tarea de pendingTasks (lista de strs ded tareas)
     delete(pendingTasks[id])
+    console.log("Tarea eliminada correctamente")
+    console.log("pendingTasks", pendingTasks)
 }
+
 function editTask(id) {
     newTask.textContent = document.getElementById(`pendingTask${id}`).textContent;
     deleteTask(id);
     focusInTextAtTheEnd(newTask);
 }
+
 function saveTask(){
     console.log("saveTask()")
+
+
 
     if(newTaskPlaceHolders.includes(newTask.textContent)){
         blinkingAlert();
@@ -106,7 +113,6 @@ function saveTask(){
         //funcion que tendrá que:
         //Guardar la tarea en la lista tareas pendientes (pushear tarea)
         pendingTasks.push(newTask.textContent);
-
         //verificamos el estado en el que está el usuario, si work o rest para aplicar los estilos correctos al insertar los elementos en pantalla
         if(startButton.classList.contains("work-button")){
             buttonStyle = "work-button"
@@ -114,8 +120,7 @@ function saveTask(){
             buttonStyle = "rest-button"
         }
 
-        
-
+        //Agregamos a la variable tarea el contenido que iría en el DOM
         task = `<li id="pendingTask${tasksEnumerator}">
                     <div>
                         <button id="upTaskButton-${tasksEnumerator}" class="switch ${buttonStyle}" onclick="upTask(${tasksEnumerator})">
@@ -135,7 +140,7 @@ function saveTask(){
                         </button>
                     </div>
                 </li>`
-        //Aumentamos el valor del contador para tener un valor utilizable por la proxima tarea
+        //Aumentamos el valor del contador para tener un valor utilizable (para editar las tareas)
         tasksEnumerator += 1
         //inserta la tarea para que sea visible en el DOM
         tasksList.insertAdjacentHTML('beforeend',task)
@@ -145,7 +150,8 @@ function saveTask(){
         tasksCounter.textContent = parseInt(tasksCounter.textContent) + 1 
         focusNewTask();
         //Limpiar newTask Label
-
+        console.log("La tarea se guardó correctamente")
+        console.log("Mostrando variable pendingTasks 'lista de tareas'")
         console.log(pendingTasks)
     };
 };

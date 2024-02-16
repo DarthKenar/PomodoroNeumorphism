@@ -8,29 +8,21 @@ var stopButton = document.getElementById("stopButton")
 var customizeModal = document.getElementById("customizeModal")
 var customizeOptionsList = customizeModal.getElementsByTagName("input")
 var customizeButtonClose = document.getElementById("customizeButtonClose")
-
 var footer = document.getElementsByTagName("footer")[0]
-
 var customizeButtonOpen = document.getElementById("customizeButtonOpen")
 var restartSessionButton = document.getElementById("restartSessionButton")
 var lenguageButtonOpen = document.getElementById("lenguageButtonOpen")
-
 var taskTitle = document.getElementById("taskTitle")
 var tasks = document.getElementById("tasks")
 var taskContainer = document.getElementById("taskContainer")
-
 var lenguageModalContent = document.getElementById("lenguageModalContent")
 var customizeModalContent = document.getElementById("customizeModalContent")
-
 var title = document.getElementById("title2")
 var customizeModal = document.getElementById("lenguageModal")
-
 var workTime = document.getElementById("workTime")
 var restTime = document.getElementById("restTime")
-
 var initialValueMinRest = "05"
 var initialValueSegRest = "00"
-
 var body = document.getElementById("body")
 var clock = document.getElementById("clock")
 
@@ -42,6 +34,9 @@ function playAlarm() {
 }
 
 function restStylesToggle(){
+
+    console.log("pendingTaskslength")
+    console.log(pendingTaskslength)
     
     body.classList.toggle("work-color-background")
     body.classList.toggle("rest-color-background")
