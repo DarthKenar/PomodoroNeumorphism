@@ -287,6 +287,16 @@ function customizeClose(){
     console.log("Settings Modal Closed")
 }
 
+function restartSessionOpen(){
+    document.getElementById('restartSessionModal').style.display = 'block';
+    console.log("Session Modal Opened")
+}
+
+function restartSessionClose(){
+    document.getElementById('restartSessionModal').style.display = 'none';
+    console.log("Session Modal Closed")
+}
+
 //Cuando selecciona una opcion (modo de pomodoro clock)
 function selectOption(e){
     console.log("Option Selected")
