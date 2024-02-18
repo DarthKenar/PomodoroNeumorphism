@@ -3,10 +3,30 @@ var newTask = document.getElementById("newTask")
 var newTaskButton = document.getElementById("newTaskButton")
 var tasksList = document.getElementById("tasks")
 var tasksCounter = document.getElementById("tasksCounter")
-var tasksEnumerator = 0
-var tasksListObject = {
-    id: [],
-    task: []
+
+
+if(localStorage.getItem("tasksCounter") !== null){
+    tasksCounter.textContent = parseInt(localStorage.getItem("tasksCounter"))
+}else{
+    tasksCounter.textContent = 0
+}
+
+if (localStorage.getItem("tasksEnumerator") != null){
+    var tasksEnumerator = parseInt(localStorage.getItem("tasksEnumerator"))
+}else{
+    var tasksEnumerator = 0
+}
+
+if (localStorage.getItem("tasksListObject") != null){
+    console.log("La lista de tareas es diferente de Null")
+    var tasksListObject = JSON.parse(localStorage.getItem("tasksListObject"))
+    console.log(tasksListObject)
+}else{
+    console.log("La lista de tareas es Null")
+    var tasksListObject = {
+        id: [],
+        task: []
+    }
 }
 
 //CLOCK VARIABLES:
@@ -38,6 +58,8 @@ var initialValueSegRest = "00"
 var body = document.getElementById("body")
 var clock = document.getElementById("clock")
 
+
+
 function tasksListObjectAdd(id, tarea) {
     tasksListObject.id.push(id);
     tasksListObject.task.push(tarea);
@@ -48,7 +70,10 @@ function tasksListObjectRemove(id) {
     indexID = tasksListObject.id.indexOf(id)
     delete(tasksListObject.id[indexID])
     delete(tasksListObject.task[indexID])
+    refreshTasks();
+    updateLocalStorage();
     console.log(`Se ha eliminado el elemento ${id}`)
+    console.log(JSON.parse(localStorage.getItem("tasksListObject")))
 }
 
 // Ejemplo de uso de la función
@@ -57,6 +82,21 @@ function tasksListObjectRemove(id) {
 
 //CLOCK FUNCTIONS
 
+//Cuando el usuario entra a la web se leen las variables locales y se pintan en pantalla todas (instantaneamente)
+//Cada vez que se guarda, modifica o elimina una variable esta se actualiza en el localStorage justo despues
+//
+function updateLocalStorage(){
+    localStorage.setItem("tasksEnumerator", tasksEnumerator)
+    localStorage.setItem("tasksListObject", JSON.stringify(tasksListObject))
+    localStorage.setItem("tasksCounter", tasksCounter.textContent)
+}
+
+function initialPaint(){ 
+    console.log("initialPaint")
+    for(let i = 0; i < tasksListObject.id.length; i++) {
+        taskPaint(tasksListObject.id[i],tasksListObject.task[i])
+    }
+}
 
 function playAlarm() {
     let alarm = new Audio("./alarma.mp3");
@@ -368,8 +408,8 @@ function downTask(){
 function refreshTasks(){
     console.log("refreshTasks()")
     //limpia las tareas eliminadas de la lista (undefined)
-    tasksListObject.id = tasksListObject.id.filter((text) => text !== undefined);
-    tasksListObject.task = tasksListObject.task.filter((text) => text !== undefined);
+    tasksListObject.id = tasksListObject.id.filter((text) => text != undefined);
+    tasksListObject.task = tasksListObject.task.filter((text) => text != undefined);
     console.log(tasksListObject.task)
     console.log(tasksListObject.task[0])
     //redibuja las tareas de la lista de tareas en el DOM
@@ -415,7 +455,7 @@ function deleteTask(id) {
     let elementToRemove = document.getElementById(`pendingTask-${id}`);
     applyReduceTransition(elementToRemove,"%");
     setTimeout(()=>(elementToRemove.remove()),500);
-    tasksCounter.textContent = parseInt(tasksCounter.textContent) - 1
+    tasksCounter.textContent = tasksCounter.textContent - 1
     //eliminacion literal de la tarea
     tasksListObjectRemove(id)
     console.log("Tarea eliminada correctamente")
@@ -427,11 +467,39 @@ function editTask(id) {
     deleteTask(id);
     focusInTextAtTheEnd(newTask);
 }
+function taskPaint(tasksEnumerator,textTask){
+    //verificamos el estado en eltasksEnumerator que está el usuario, si work o rest para aplicar los estilos correctos al insertar los elementos en pantalla
+    if(startButton.classList.contains("work-button")){
+        buttonStyle = "work-button"
+    }else{
+        buttonStyle = "rest-button"
+    }
+    //Agregamos a la variable tarea el contenido que iría en el DOM
+    task = `<li id="pendingTask-${tasksEnumerator}">
+                <div>
+                    <button id="upTaskButton-${tasksEnumerator}" class="switch ${buttonStyle}" onclick="upTask(${tasksEnumerator})">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                    </button>
+                    <button id="downTaskButton-${tasksEnumerator}" class="switch ${buttonStyle}" onclick="downTask(${tasksEnumerator})">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                </div>
+                <label>${textTask}</label>
+                <div>
+                    <button id="editTaskButton-${tasksEnumerator}" class="switch ${buttonStyle}" onclick="editTask(${tasksEnumerator})">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                    </button>
+                    <button id="deleteTaskButton-${tasksEnumerator}" class="switch ${buttonStyle}" onclick="deleteTask(${tasksEnumerator})">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                    </button>
+                </div>
+            </li>`
+    //inserta la tarea para que sea visible en el DOM
+    tasksList.insertAdjacentHTML('beforeend',task)
+}
 
 function saveTask(){
     console.log("saveTask()")
-
-
 
     if(newTaskPlaceHolders.includes(newTask.textContent)){
         blinkingAlert();
@@ -440,47 +508,26 @@ function saveTask(){
         //funcion que tendrá que:
         //Guardar la tarea en la lista tareas pendientes (pushear tarea)
         tasksListObjectAdd(tasksEnumerator,newTask.textContent)
-        //verificamos el estado en el que está el usuario, si work o rest para aplicar los estilos correctos al insertar los elementos en pantalla
-        if(startButton.classList.contains("work-button")){
-            buttonStyle = "work-button"
-        }else{
-            buttonStyle = "rest-button"
-        }
 
-        //Agregamos a la variable tarea el contenido que iría en el DOM
-        task = `<li id="pendingTask-${tasksEnumerator}">
-                    <div>
-                        <button id="upTaskButton-${tasksEnumerator}" class="switch ${buttonStyle}" onclick="upTask(${tasksEnumerator})">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                        </button>
-                        <button id="downTaskButton-${tasksEnumerator}" class="switch ${buttonStyle}" onclick="downTask(${tasksEnumerator})">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                        </button>
-                    </div>
-                    <label>${tasksListObject.task[tasksListObject.task.length-1]}</label>
-                    <div>
-                        <button id="editTaskButton-${tasksEnumerator}" class="switch ${buttonStyle}" onclick="editTask(${tasksEnumerator})">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
-                        </button>
-                        <button id="deleteTaskButton-${tasksEnumerator}" class="switch ${buttonStyle}" onclick="deleteTask(${tasksEnumerator})">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-                        </button>
-                    </div>
-                </li>`
+        taskPaint(tasksEnumerator,newTask.textContent)
         //Aumentamos el valor del contador para tener un valor utilizable (para editar las tareas)
-        tasksEnumerator += 1
-        //inserta la tarea para que sea visible en el DOM
-        tasksList.insertAdjacentHTML('beforeend',task)
+        tasksEnumerator += 1;
+
+        console.log(localStorage.getItem("tasksListObject"))
         // FocusEvent.click() //quitar el focus del elemento
-        tasksCounter.textContent = parseInt(tasksCounter.textContent) + 1 
+        tasksCounter.textContent = parseInt(tasksCounter.textContent) + 1
         focusNewTask();
         //Limpiar newTask Label
+
         console.log("La tarea se guardó correctamente")
         console.log("Mostrando variable tasksListObject.task 'lista de tareas'")
         console.log(tasksListObject.task)
+        //Actualizamos los datos del usuario
+        updateLocalStorage();
     };
 };
 
+initialPaint();
 
 //LISTENERS
 
