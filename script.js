@@ -527,6 +527,14 @@ function saveTask(){
     };
 };
 
+function restartSession(){
+
+    localStorage.removeItem("tasksEnumerator")
+    localStorage.removeItem("tasksListObject")
+    localStorage.removeItem("tasksCounter")
+    window.location.reload()
+}
+
 initialPaint();
 
 //LISTENERS
@@ -549,7 +557,6 @@ customizeButtonClose.addEventListener('click', customizeClose);
 workTime.addEventListener('click', switchTypeOfWork)
 restTime.addEventListener('click', switchTypeOfWork)
 newTaskButton.addEventListener("click", saveTask);
-
 for(let i=0; i<customizeOptionsList.length; i++){
     customizeOptionsList[i].addEventListener("change", function() {
         selectOption(i);
