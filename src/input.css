@@ -380,11 +380,50 @@ main section header #workTime {
     border-radius: 25px;
 }
 
+/*Hay que cancelar el display none de los modales por defecto*/
+#info {
+    display: block;
+}
+
+#info-content {
+    width: 90%;
+    height: auto;
+    max-height: 95%;
+    overflow: auto; /* Crear barra de desplazamiento cuando sea necesario */
+}
+
+#info-content img {
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+#info-content section div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+#info-content h2, #info-content p {
+    font-size: small;
+    font-family: 'Times New Roman', Times, serif
+}
+#info-content h2 {
+    font-size: x-large;
+}
 /* Estilo para pantallas de menos de 600px (celulares) */
 @media only screen and (max-width: 600px) {
     .modal-content {
         width: 85%;
     }
+    #info-content {
+        display: flex;
+        flex-direction: column;
+    }
+
 }
 
 /* Estilo para pantallas de 601px a 900px (tablets) */
@@ -392,6 +431,32 @@ main section header #workTime {
     .modal-content {
         width: 60%;
     }
+    #info-content {
+        display: flex;
+        flex-direction: row;
+    }
+}
+/* Estilo para pantallas de mas de 900px (tablets) */
+@media only screen and (min-width: 901px){
+    #info-content {
+        display: flex;
+        flex-direction: row;
+    }
+    #info-content h2 {
+        color: white;
+    }
+    #info-content p {
+        color: bisque;
+    }
+
+
+}
+
+#info-content section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .glass {

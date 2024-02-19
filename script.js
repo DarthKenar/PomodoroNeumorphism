@@ -45,6 +45,8 @@ if (localStorage.getItem("tasksListObject") != null){
     }
 }
 
+var info = document.getElementById("info")
+
 //CLOCK VARIABLES:
 var runningTime;
 var clockValueMin = document.getElementById("clockValueMin");
@@ -605,6 +607,10 @@ function restartSession(){
     localStorage.removeItem("tasksListObject")
     localStorage.removeItem("tasksCounter")
     window.location.reload()
+}
+
+function infoClose(){
+    document.getElementById('info').style.display = 'none';
 }
 
 initialPaint();
