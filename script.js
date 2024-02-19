@@ -537,7 +537,7 @@ function deleteTask(id) {
 }
 
 function editTask(id) {
-    newTask.textContent = document.getElementById(`pendingTask-${id}`).textContent;
+    newTask.innerHTML = document.getElementById(`pendingTask-${id}`).querySelector("label").innerHTML;
     deleteTask(id);
     focusInTextAtTheEnd(newTask);
 }
@@ -581,9 +581,8 @@ function saveTask(){
         
         //funcion que tendrá que:
         //Guardar la tarea en la lista tareas pendientes (pushear tarea)
-        tasksListObjectAdd(tasksEnumerator,newTask.textContent)
-
-        taskPaint(tasksEnumerator,newTask.textContent)
+        tasksListObjectAdd(tasksEnumerator,newTask.innerHTML)
+        taskPaint(tasksEnumerator,newTask.innerHTML)
         //Aumentamos el valor del contador para tener un valor utilizable (para editar las tareas)
         tasksEnumerator += 1;
 
