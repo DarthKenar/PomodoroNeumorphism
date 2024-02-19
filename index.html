@@ -7,7 +7,7 @@
     <title id="title1">Pomodoro Neumorfista</title>
 </head>
     <div id="restartSessionModal" class="modal glass work-color-text">
-        <div id="restartSessionModalContent" class="modal-content work-color-marco">
+        <div id="restartSessionModalContent" class="modal-content work-color-marco work-color-background">
             <span id="restartSessionButtonClose" class="closeModal" onclick="restartSessionClose();">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </span>
@@ -15,14 +15,14 @@
                 <h2>Cuidado!</h2>
                 <p>Estas a punto de eliminar toda la informacion establecida por tí.</p>
                 <div>
-                    <button onclick="restartSession();">Eliminar</button>
-                    <button onclick="restartSessionClose();">Volver</button>
+                    <button id="restartSessionButtonYes" class="work-button" onclick="restartSession();">Eliminar</button>
+                    <button id="restartSessionButtonNo" class="work-button" onclick="restartSessionClose();">Volver</button>
                 </div>
             </section>
         </div>
     </div>
     <div id="customizeModal" class="modal glass work-color-text">
-        <div id="customizeModalContent" class="modal-content work-color-marco">
+        <div id="customizeModalContent" class="modal-content work-color-marco work-color-background">
             <span id="customizeButtonClose" class="closeModal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </span>
@@ -71,24 +71,24 @@
         </div>
     </div>
     <div id="lenguageModal" class="modal glass work-color-text">
-        <div id="lenguageModalContent" class="modal-content work-color-marco">
+        <div id="lenguageModalContent" class="modal-content work-color-marco work-color-background">
             <span id="lenguageButtonClose" class="closeModal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </span>
             <section>
-                <button id="esBtn">
+                <button id="esBtn" class="work-button">
                     <label id="esLabel" class="cursor-pointer">Español</label>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-flag"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
                 </button>
-                <button id="enBtn">
+                <button id="enBtn" class="work-button">
                     <label id="enLabel" class="cursor-pointer">English</label>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-flag"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
                 </button>
-                <button id="brBtn">
+                <button id="brBtn" class="work-button">
                     <label id="brLabel" class="cursor-pointer">portuguese</label>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-flag"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
                 </button>
-                <button id="jpBtn">
+                <button id="jpBtn" class="work-button">
                     <label id="jpLabel" class="cursor-pointer">日本語"</label>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-flag"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
                 </button>
