@@ -3,10 +3,23 @@ var newTask = document.getElementById("newTask")
 var newTaskButton = document.getElementById("newTaskButton")
 var tasksList = document.getElementById("tasks")
 var tasksCounter = document.getElementById("tasksCounter")
+
+//lenguages
 var esBtn = document.getElementById('esBtn')
 var enBtn = document.getElementById('enBtn')
 var brBtn = document.getElementById('brBtn')
 var jpBtn = document.getElementById('jpBtn')
+
+//clock options
+var clockOption1Button = document.getElementById('clockOption1Button')
+var clockOption2Button = document.getElementById('clockOption2Button')
+var clockOption3Button = document.getElementById('clockOption3Button')
+var clockOption4Button = document.getElementById('clockOption4Button')
+
+var clockOption1Indicator = document.getElementById('clockOption1Indicator')
+var clockOption2Indicator = document.getElementById('clockOption2Indicator')
+var clockOption3Indicator = document.getElementById('clockOption3Indicator')
+var clockOption4Indicator = document.getElementById('clockOption4Indicator')
 
 if(localStorage.getItem("tasksCounter") !== null){
     tasksCounter.textContent = parseInt(localStorage.getItem("tasksCounter"))
@@ -194,6 +207,25 @@ function restStylesToggle(){
     brBtn.classList.toggle("rest-button")
     jpBtn.classList.toggle("work-button")
     jpBtn.classList.toggle("rest-button")
+
+    clockOption1Button.classList.toggle("work-toggle")
+    clockOption1Button.classList.toggle("rest-toggle")
+    clockOption2Button.classList.toggle("work-toggle")
+    clockOption2Button.classList.toggle("rest-toggle")
+    clockOption3Button.classList.toggle("work-toggle")
+    clockOption3Button.classList.toggle("rest-toggle")
+    clockOption4Button.classList.toggle("work-toggle")
+    clockOption4Button.classList.toggle("rest-toggle")
+
+    clockOption1Indicator.classList.toggle("work-indicator")
+    clockOption1Indicator.classList.toggle("rest-indicator")
+    clockOption2Indicator.classList.toggle("work-indicator")
+    clockOption2Indicator.classList.toggle("rest-indicator")
+    clockOption3Indicator.classList.toggle("work-indicator")
+    clockOption3Indicator.classList.toggle("rest-indicator")
+    clockOption4Indicator.classList.toggle("work-indicator")
+    clockOption4Indicator.classList.toggle("rest-indicator")
+
 
     restartSessionButtonYes.classList.toggle("rest-button")
     restartSessionButtonYes.classList.toggle("work-button")
