@@ -601,7 +601,6 @@ function saveTask(){
 };
 
 function restartSession(){
-
     localStorage.removeItem("tasksEnumerator")
     localStorage.removeItem("tasksListObject")
     localStorage.removeItem("tasksCounter")
