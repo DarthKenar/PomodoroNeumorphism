@@ -944,14 +944,14 @@ main section header #workTime {
   padding: 10px;
 }
 
-.modal-content > section > div > #restartSessionButton{
+.modal-content > section > div > #restartSessionButtonYes{
   transition: all 0.5s ease;
   padding: 10px;
   background: rgb(40,40,40);
   background: radial-gradient(circle, rgba(40,40,40,1) 14%, rgba(115,49,49,1) 100%);
 }
 
-.modal-content > section > div > #restartSessionButton:hover{
+.modal-content > section > div > #restartSessionButtonYes:hover{
   transition: all 1s ease;
   background: rgba(115,49,49,1);
 }

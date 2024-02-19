@@ -3,7 +3,10 @@ var newTask = document.getElementById("newTask")
 var newTaskButton = document.getElementById("newTaskButton")
 var tasksList = document.getElementById("tasks")
 var tasksCounter = document.getElementById("tasksCounter")
-
+var esBtn = document.getElementById('esBtn')
+var enBtn = document.getElementById('enBtn')
+var brBtn = document.getElementById('brBtn')
+var jpBtn = document.getElementById('jpBtn')
 
 if(localStorage.getItem("tasksCounter") !== null){
     tasksCounter.textContent = parseInt(localStorage.getItem("tasksCounter"))
@@ -49,6 +52,8 @@ var tasks = document.getElementById("tasks")
 var taskContainer = document.getElementById("taskContainer")
 var lenguageModalContent = document.getElementById("lenguageModalContent")
 var customizeModalContent = document.getElementById("customizeModalContent")
+var restartSessionModal = document.getElementById("restartSessionModal")
+var restartSessionModalContent = document.getElementById("restartSessionModalContent")
 var title = document.getElementById("title2")
 var customizeModal = document.getElementById("lenguageModal")
 var workTime = document.getElementById("workTime")
@@ -57,8 +62,8 @@ var initialValueMinRest = "05"
 var initialValueSegRest = "00"
 var body = document.getElementById("body")
 var clock = document.getElementById("clock")
-
-
+var restartSessionButtonYes = document.getElementById("restartSessionButtonYes")
+var restartSessionButtonNo = document.getElementById("restartSessionButtonNo")
 
 function tasksListObjectAdd(id, tarea) {
     tasksListObject.id.push(id);
@@ -119,14 +124,26 @@ function restStylesToggle(){
     customizeModal.classList.toggle("work-color-text")
     customizeModal.classList.toggle("rest-color-text")
 
+    restartSessionModal.classList.toggle("work-color-text")
+    restartSessionModal.classList.toggle("rest-color-text")
+    
     lenguageModal.classList.toggle("work-color-text")
     lenguageModal.classList.toggle("rest-color-text")
 
     customizeModalContent.classList.toggle("work-color-marco")
     customizeModalContent.classList.toggle("rest-color-marco")
+    customizeModalContent.classList.toggle("work-color-background")
+    customizeModalContent.classList.toggle("rest-color-background")
 
     lenguageModalContent.classList.toggle("work-color-marco")
     lenguageModalContent.classList.toggle("rest-color-marco")
+    lenguageModalContent.classList.toggle("work-color-background")
+    lenguageModalContent.classList.toggle("rest-color-background")
+
+    restartSessionModalContent.classList.toggle("work-color-marco")
+    restartSessionModalContent.classList.toggle("rest-color-marco")
+    restartSessionModalContent.classList.toggle("work-color-background")
+    restartSessionModalContent.classList.toggle("rest-color-background")
 
     taskTitle.classList.toggle("work-color-marco")
     taskTitle.classList.toggle("rest-color-marco")
@@ -167,6 +184,21 @@ function restStylesToggle(){
     startButton.classList.toggle("rest-button")
     stopButton.classList.toggle("work-button")
     stopButton.classList.toggle("rest-button")
+
+    //lenguage buttons
+    esBtn.classList.toggle("work-button")
+    esBtn.classList.toggle("rest-button")
+    enBtn.classList.toggle("work-button")
+    enBtn.classList.toggle("rest-button")
+    brBtn.classList.toggle("work-button")
+    brBtn.classList.toggle("rest-button")
+    jpBtn.classList.toggle("work-button")
+    jpBtn.classList.toggle("rest-button")
+
+    restartSessionButtonYes.classList.toggle("rest-button")
+    restartSessionButtonYes.classList.toggle("work-button")
+    restartSessionButtonNo.classList.toggle("rest-button")
+    restartSessionButtonNo.classList.toggle("work-button")
 
     footer.classList.toggle("work-footer")
     footer.classList.toggle("rest-footer")
