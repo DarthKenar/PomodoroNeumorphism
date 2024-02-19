@@ -1193,6 +1193,13 @@ main section header #workTime {
   box-shadow: inset 0 0 0px 0px bisque;
 }
 
+.icon {
+  color: bisque;
+  background-color: bisque;
+  padding: 10px;
+  border-radius: 25px;
+}
+
 @media (min-width: 1024px) {
   .lg\:flex {
     display: flex;
