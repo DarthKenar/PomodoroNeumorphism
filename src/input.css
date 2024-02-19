@@ -297,27 +297,19 @@ main section header #workTime {
                 inset -4px -4px 8px #fff;
 }
 
-.modal-content .optionsSection {
-    display: flex;  
-    flex-direction: column;
-    gap: 2rem/* 32px */;
-    padding-top: 3.5rem/* 40px */;
-    padding-bottom: 2.5rem/* 40px */;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
 
-.modal-content .optionsSection .label aside {
+.modal-content > section .label aside {
     padding-left: 1rem;
 }
-.modal-content .optionsSection .label aside h3 {
+.modal-content > section .label aside h3 {
     font-size: smaller;
 }
 
-.modal-content .lenguagesSection {
+.modal-content > section > div > button{
+    padding: 25px 10px;
+}
+
+.modal-content section {
     display: flex;  
     flex-direction: column;
     gap: 2rem/* 32px */;
