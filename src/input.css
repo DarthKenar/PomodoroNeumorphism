@@ -17,8 +17,6 @@ button {
     font-family: monospace,'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-
-
 body {
     
     display: flex;
@@ -31,7 +29,6 @@ body {
     background-color: #282828;
     transition: all 0.5s ease;
 }
-
 
 .rest-color-background{
     transition: all 0.5s ease;
@@ -58,6 +55,7 @@ nav button span {
         display: none;
     }
 }
+
 .clock {
     display: flex;
     max-width: 100%;
@@ -76,6 +74,7 @@ nav button span {
         inset -4px -4px 10px rgba(105, 91, 91, 0.3),
         4px 4px 10px rgba(0, 0, 0, 0.3);
 }
+
 .rest-color-clock{
     transition: all 0.5s ease;
     border: 4px solid #e0e0e0;
@@ -123,6 +122,7 @@ li {
     box-shadow:  4px 4px 8px #1c1c1c,
                 -4px -4px 8px #343434;
 }
+
 .rest-task {
     box-shadow: inset 4px 4px 8px #bebebe,
                 inset -4px -4px 8px #fff;
@@ -178,11 +178,13 @@ footer {
     margin: 0;
     border-radius: 25px 25px 0px 0px;
 }
+
 .work-footer {
     background: #282828;
     box-shadow: 4px 4px 8px #1c1c1c,
                 -4px -4px 8px #343434;
 }
+
 .rest-footer {
     background: #e0e0e0;
     box-shadow: -4px -4px 10px #fff,
@@ -221,18 +223,19 @@ nav button svg {
     margin: 0px;
     padding: 0px;
 }
+
 /* nav button text */
 nav button span {
     margin: 0px;
     margin-left: 6px;
     padding: 0px;
 }
+
 /* clock button */
 .btn-clock {
     margin: 24px;
     padding: 6px 32px;
 }
-
 
 aside ul li {
     position: relative;
@@ -292,15 +295,16 @@ main section header #workTime {
     box-shadow: inset 4px 4px 8px #1c1c1c,
                 inset -4px -4px 8px #343434;
 }
+
 .rest-pressed {
     box-shadow: inset 4px 4px 8px #bebebe,
                 inset -4px -4px 8px #fff;
 }
 
-
 .modal-content > section .label aside {
     padding-left: 1rem;
 }
+
 .modal-content > section .label aside h3 {
     font-size: smaller;
 }
@@ -431,7 +435,7 @@ main section header #workTime {
     padding-top: 0;
     padding-bottom: 0;
     overflow: hidden;
-  }
+}
 
 .alert {
     transition: all .3s;
@@ -440,6 +444,7 @@ main section header #workTime {
     box-shadow: 0 100 20px 5px bisque;
     box-shadow: inset 0 0 20px 5px bisque;
 }
+
 .no-alert {
     border: 1px solid #1c1c1c !important;
     box-shadow: 0 0 0px 0px bisque;
