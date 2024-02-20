@@ -1052,6 +1052,7 @@ main section header #workTime {
 
 #info-content h2 {
   font-size: x-large;
+  font: bold;
 }
 
 /* Estilo para pantallas de menos de 600px (celulares) */
@@ -1191,6 +1192,62 @@ main section header #workTime {
   border: 1px solid #1c1c1c !important;
   box-shadow: 0 0 0px 0px bisque;
   box-shadow: inset 0 0 0px 0px bisque;
+}
+
+.animacion {
+  transition: transform 0.5s ease-in-out;
+}
+
+.cantup {
+  animation: cantup 0.5s ease-in-out;
+}
+
+@keyframes cantup {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(-5px);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  75% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.cantdown {
+  animation: cantdown 0.5s ease-in-out;
+}
+
+@keyframes cantdown {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(5px);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  75% {
+    transform: translateY(5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @media (min-width: 1024px) {

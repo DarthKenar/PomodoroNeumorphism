@@ -9,3 +9,13 @@ Al hacer click upTask() debe:
         - Tiene que mostrar alguna animacion y cambio visual en el front. 
           - Podría Sustraer directamente las dos estructuras de las tareas o solo los textos e intercambiarlos
 
+Al hacer click en UP hace:
+    - Busca el indice de la tarea en tasksListObject (Ahora tenemos el id de la tarea y el índice)
+    Si el indice es != de 0:
+        hay que: 
+            - cambiarlo por el anterior en la lsita tasksListObject:
+            - actualizar la lista localStorage
+            - cambiar la posicion en el DOM
+    Sino:
+        Hay que:
+            - Mostrar animacion de que no se puede

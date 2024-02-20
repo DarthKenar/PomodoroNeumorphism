@@ -1,7 +1,10 @@
 //TASKS VARIABLES
 var newTask = document.getElementById("newTask")
 var newTaskButton = document.getElementById("newTaskButton")
-var tasksList = document.getElementById("tasks")
+
+var tasks = document.getElementById("tasks")
+var tasksList = tasks.getElementsByTagName("li")
+
 var tasksCounter = document.getElementById("tasksCounter")
 
 //lenguages
@@ -63,7 +66,6 @@ var customizeButtonOpen = document.getElementById("customizeButtonOpen")
 var restartSessionButton = document.getElementById("restartSessionButton")
 var lenguageButtonOpen = document.getElementById("lenguageButtonOpen")
 var taskTitle = document.getElementById("taskTitle")
-var tasks = document.getElementById("tasks")
 var taskContainer = document.getElementById("taskContainer")
 var lenguageModalContent = document.getElementById("lenguageModalContent")
 var customizeModalContent = document.getElementById("customizeModalContent")
@@ -473,14 +475,6 @@ function focusInTextAtTheEnd(elemento) {
     elemento.focus();
 }
 
-function upTask(){
-    console.log("upTask()")
-};
-
-function downTask(){
-    console.log("downTask()")
-};
-
 function refreshTasks(){
     console.log("refreshTasks()")
     //limpia las tareas eliminadas de la lista (undefined)
@@ -571,7 +565,7 @@ function taskPaint(tasksEnumerator,textTask){
                 </div>
             </li>`
     //inserta la tarea para que sea visible en el DOM
-    tasksList.insertAdjacentHTML('beforeend',task)
+    tasks.insertAdjacentHTML('beforeend',task)
 }
 
 function saveTask(){
@@ -611,6 +605,53 @@ function restartSession(){
 
 function infoClose(){
     document.getElementById('info').style.display = 'none';
+}
+
+function upTask(id){
+    console.log("upTask()")
+    //primero busco el indice
+    indexID = tasksListObject.id.indexOf(id)
+    console.log(indexID)
+    if(indexID > 0){
+        //movemos el indice en la lista de objetos
+        [tasksListObject.id[indexID - 1], tasksListObject.id[indexID]] = [tasksListObject.id[indexID], tasksListObject.id[indexID - 1]];
+        console.log("IDs", tasksListObject.id)
+        //Actualizamos el local storage
+        updateLocalStorage()
+        //Intercambiamos los elementos en el DOM
+        tasks.insertBefore(tasksList[indexID + 1], tasksList[indexID - 1 + 1]);
+        console.log("Se intercambiaron correctamente")
+    }else{
+        //Agrego animacion para cuando el indice esta al principio
+        console.log("animacion")
+        tasksList[indexID+1].classList.add('cantup');
+        setTimeout(() => {
+            tasksList[indexID+1].classList.remove('cantup');
+        }, 500);
+    }
+}
+function downTask(id){
+    console.log("downTask()")
+    //primero busco el indice
+    indexID = tasksListObject.id.indexOf(id)
+    console.log(indexID)
+    if(indexID < tasksListObject.id.length){
+        //movemos el indice en la lista de objetos
+        [tasksListObject.id[indexID], tasksListObject.id[indexID] + 1] = [tasksListObject.id[indexID + 1], tasksListObject.id[indexID]];
+        console.log("IDs", tasksListObject.id)
+        //Actualizamos el local storage
+        updateLocalStorage()
+        //Intercambiamos los elementos en el DOM
+        tasks.insertBefore(tasksList[indexID + 1 + 1], tasksList[indexID + 1]);
+        console.log("Se intercambiaron correctamente")
+    }else{
+        //Agrego animacion para cuando el indice esta al principio
+        console.log("animacion")
+        tasksList[indexID+1].classList.add('cantup');
+        setTimeout(() => {
+            tasksList[indexID+1].classList.remove('cantup');
+        }, 500);
+    }
 }
 
 initialPaint();
