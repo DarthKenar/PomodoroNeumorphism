@@ -108,6 +108,7 @@ function tasksListObjectRemove(id) {
 //Cada vez que se guarda, modifica o elimina una variable esta se actualiza en el localStorage justo despues
 //
 function updateLocalStorage(){
+    refreshTasks()
     localStorage.setItem("tasksEnumerator", tasksEnumerator)
     localStorage.setItem("tasksListObject", JSON.stringify(tasksListObject))
     localStorage.setItem("tasksCounter", tasksCounter.textContent)
@@ -611,7 +612,7 @@ function upTask(id){
     console.log("upTask()")
     //primero busco el indice
     indexID = tasksListObject.id.indexOf(id)
-    console.log(indexID)
+    console.log("indexID", indexID)
     if(indexID > 0){
         //movemos el indice en la lista de objetos
         [tasksListObject.id[indexID - 1], tasksListObject.id[indexID]] = [tasksListObject.id[indexID], tasksListObject.id[indexID - 1]];
@@ -621,39 +622,48 @@ function upTask(id){
         //Intercambiamos los elementos en el DOM
         tasks.insertBefore(tasksList[indexID + 1], tasksList[indexID - 1 + 1]);
         console.log("Se intercambiaron correctamente")
+        console.log("switchTask")
+        taskAnimation(indexID,"switchTaskFromAbove")
+        taskAnimation(indexID-1,"switchTaskFromBelow")
     }else{
         //Agrego animacion para cuando el indice esta al principio
         console.log("animacion")
-        tasksList[indexID+1].classList.add('cantup');
-        setTimeout(() => {
-            tasksList[indexID+1].classList.remove('cantup');
-        }, 500);
+        taskAnimation(indexID,"cantdown")
     }
 }
 function downTask(id){
     console.log("downTask()")
     //primero busco el indice
     indexID = tasksListObject.id.indexOf(id)
-    console.log(indexID)
-    if(indexID < tasksListObject.id.length){
+    console.log("indexID", indexID)
+    console.log("tasksListObject.id.length",tasksListObject.id.length)
+    if(indexID < tasksListObject.id.length-1){
         //movemos el indice en la lista de objetos
-        [tasksListObject.id[indexID], tasksListObject.id[indexID] + 1] = [tasksListObject.id[indexID + 1], tasksListObject.id[indexID]];
+        [tasksListObject.id[indexID], tasksListObject.id[indexID + 1] ] = [tasksListObject.id[indexID + 1], tasksListObject.id[indexID]];
         console.log("IDs", tasksListObject.id)
         //Actualizamos el local storage
         updateLocalStorage()
         //Intercambiamos los elementos en el DOM
         tasks.insertBefore(tasksList[indexID + 1 + 1], tasksList[indexID + 1]);
         console.log("Se intercambiaron correctamente")
+        
+        console.log("switchTask")
+
+        taskAnimation(indexID,"switchTaskFromBelow")
+        taskAnimation(indexID+1,"switchTaskFromAbove")
+
     }else{
         //Agrego animacion para cuando el indice esta al principio
         console.log("animacion")
-        tasksList[indexID+1].classList.add('cantup');
-        setTimeout(() => {
-            tasksList[indexID+1].classList.remove('cantup');
-        }, 500);
+        taskAnimation(indexID,"cantdown")
     }
 }
-
+function taskAnimation(indexID, animation){
+    tasksList[indexID+1].classList.add(`${animation}`);
+    setTimeout(() => {
+        tasksList[indexID+1].classList.remove(`${animation}`);
+    }, 500);
+}
 initialPaint();
 
 //LISTENERS
