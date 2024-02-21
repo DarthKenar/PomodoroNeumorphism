@@ -19,7 +19,7 @@
   -(desbloquear boton en este punto?)
   -animacion de que ahora esta abajo (llegando a su posicion)
   -animacion de que ahora esta arriba (llegando a su posicion)
-  - habilitar boton (ver habilitacion )
+  -habilitar boton (ver habilitacion )
 
   PD: La animacion no debe entorpecer la velocidad del usuario al switchear tareas
     - Debe ser una animacion limpia y rapida
