@@ -97,7 +97,7 @@ function spanishLenguageSelected(){
 
     footerLabel.textContent = "Hecho por"
 
-    clockOption1.textContent = "Paso de bebé"
+    clockOption1.textContent = "Corto"
     clockOption2.textContent = "Popular"
     clockOption3.textContent = "Medio"
     clockOption4.textContent = "Extendido"

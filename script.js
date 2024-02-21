@@ -643,6 +643,7 @@ function downTask(id){
         console.log("IDs", tasksListObject.id)
         //Actualizamos el local storage
         updateLocalStorage()
+
         //Intercambiamos los elementos en el DOM
         tasks.insertBefore(tasksList[indexID + 1 + 1], tasksList[indexID + 1]);
         console.log("Se intercambiaron correctamente")
@@ -651,6 +652,10 @@ function downTask(id){
 
         taskAnimation(indexID,"switchTaskFromBelow")
         taskAnimation(indexID+1,"switchTaskFromAbove")
+
+        //anulamos el botón: los botones de posicionamiento
+        //tasksList[indexID + 1].children.remo
+        //id="upTaskButton-${tasksEnumerator}"
 
     }else{
         //Agrego animacion para cuando el indice esta al principio
