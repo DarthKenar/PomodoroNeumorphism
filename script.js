@@ -620,23 +620,29 @@ function upTask(id){
         //Actualizamos el local storage
         updateLocalStorage()
         //Intercambiamos los elementos en el DOM
-        tasks.insertBefore(tasksList[indexID + 1], tasksList[indexID - 1 + 1]);
+        
         console.log("Se intercambiaron correctamente")
         console.log("switchTask")
-        taskAnimation(indexID,"switchTaskFromAbove")
-        taskAnimation(indexID-1,"switchTaskFromBelow")
+
+        taskAnimation(indexID,"vanishSwitchTaskFromBelow", "appearSwitchTaskFromBelow")
+        taskAnimation(indexID-1,"vanishSwitchTaskFromAbove", "appearSwitchTaskFromAbove")
+        setTimeout(() => {
+            tasks.insertBefore(tasksList[indexID + 1], tasksList[indexID - 1 + 1]);
+        }, 500);
     }else{
         //Agrego animacion para cuando el indice esta al principio
         console.log("animacion")
-        taskAnimation(indexID,"cantdown")
+        taskAnimationSimple(indexID,"cantdown")
     }
 }
 function downTask(id){
     console.log("downTask()")
+    
     //primero busco el indice
     indexID = tasksListObject.id.indexOf(id)
     console.log("indexID", indexID)
     console.log("tasksListObject.id.length",tasksListObject.id.length)
+
     if(indexID < tasksListObject.id.length-1){
         //movemos el indice en la lista de objetos
         [tasksListObject.id[indexID], tasksListObject.id[indexID + 1] ] = [tasksListObject.id[indexID + 1], tasksListObject.id[indexID]];
@@ -644,29 +650,55 @@ function downTask(id){
         //Actualizamos el local storage
         updateLocalStorage()
 
-        //Intercambiamos los elementos en el DOM
-        tasks.insertBefore(tasksList[indexID + 1 + 1], tasksList[indexID + 1]);
+        //Intercambiamos los elementos en el DOM ejecutando las animaciones correspondientes
         console.log("Se intercambiaron correctamente")
-        
         console.log("switchTask")
-
-        taskAnimation(indexID,"switchTaskFromBelow")
-        taskAnimation(indexID+1,"switchTaskFromAbove")
-
-        //anulamos el botón: los botones de posicionamiento
-        //tasksList[indexID + 1].children.remo
-        //id="upTaskButton-${tasksEnumerator}"
+        taskAnimation(indexID,"vanishSwitchTaskFromAbove", "appearSwitchTaskFromAbove")
+        taskAnimation(indexID+1,"vanishSwitchTaskFromBelow","appearSwitchTaskFromBelow")
+        setTimeout(() => {
+            tasks.insertBefore(tasksList[indexID + 1 + 1], tasksList[indexID + 1]);
+        }, 500);
 
     }else{
         //Agrego animacion para cuando el indice esta al principio
         console.log("animacion")
-        taskAnimation(indexID,"cantdown")
+        taskAnimationSimple(indexID,"cantdown")
     }
 }
-function taskAnimation(indexID, animation){
+function taskAnimation(indexID, startAnimation, endAnimation){
+    let upTaskButton = document.getElementById(`upTaskButton-${indexID}`)
+    let downTaskButton = document.getElementById(`downTaskButton-${indexID}`)
+    upTaskButton.disabled = true;
+    downTaskButton.disabled = true;
+    console.log(indexID)
+    tasksList[indexID+1].classList.add(`${startAnimation}`);
+    setTimeout(() => {
+        tasksList[indexID+1].classList.remove(`${startAnimation}`);
+        console.log(indexID)
+        //cambiar posicion de tareas
+        setTimeout(() => {
+            tasksList[indexID+1].classList.add(`${endAnimation}`);
+            upTaskButton.disabled = false;
+            downTaskButton.disabled = false;
+            console.log(indexID)
+            tasksList[indexID+1].classList.remove(`${endAnimation}`);
+        }, 500);
+    }, 500);
+
+    console.log(indexID)
+    
+}
+
+function taskAnimationSimple(indexID, animation){
+    let upTaskButton = document.getElementById(`upTaskButton-${indexID}`)
+    let downTaskButton = document.getElementById(`downTaskButton-${indexID}`)
+    upTaskButton.disabled = true;
+    downTaskButton.disabled = true;
     tasksList[indexID+1].classList.add(`${animation}`);
     setTimeout(() => {
         tasksList[indexID+1].classList.remove(`${animation}`);
+        upTaskButton.disabled = false;
+        downTaskButton.disabled = false;
     }, 500);
 }
 initialPaint();
@@ -691,6 +723,7 @@ customizeButtonClose.addEventListener('click', customizeClose);
 workTime.addEventListener('click', switchTypeOfWork)
 restTime.addEventListener('click', switchTypeOfWork)
 newTaskButton.addEventListener("click", saveTask);
+
 for(let i=0; i<customizeOptionsList.length; i++){
     customizeOptionsList[i].addEventListener("change", function() {
         selectOption(i);

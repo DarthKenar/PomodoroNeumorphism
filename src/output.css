@@ -1194,16 +1194,74 @@ main section header #workTime {
   box-shadow: inset 0 0 0px 0px bisque;
 }
 
-.switchTaskFromBelow {
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+/* positivo es hacia abajo desde el origen */
+
+/* juntos */
+
+@keyframes vanishFromAbove {
+  0% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(15%)
+  }
 }
 
-.switchTaskFromAbove {
-  opacity: 0;
-  transform: translateY(-100%);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+@keyframes appearFromAbove {
+  0% {
+    opacity: 0;
+    transform: translateY(-15%)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+/* OK */
+
+@keyframes vanishFromBelow {
+  0% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-15%)
+  }
+}
+
+@keyframes appearFromBelow {
+  0% {
+    opacity: 0;
+    transform: translateY(15%)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+.vanishSwitchTaskFromBelow {
+  animation: vanishFromBelow 0.5s ease-in forwards;
+}
+
+.appearSwitchTaskFromBelow {
+  animation: appearFromBelow 0.5s ease-out forwards;
+}
+
+.vanishSwitchTaskFromAbove {
+  animation: vanishFromAbove 0.5s ease-in forwards;
+}
+
+.appearSwitchTaskFromAbove {
+  animation: appearFromAbove 0.5s ease-out forwards;
 }
 
 .cantup {

@@ -22,3 +22,6 @@
   PD: La animacion no debe entorpecer la velocidad del usuario al switchear tareas
     - Debe ser una animacion limpia y rapida
 
+- Fijarse si se peude dividir las animaciones en animaciones (funciones ) mas pequeñas:
+- una para iniciar las 2 animaciones de los dos elementos, otra para switchear el DOM y otra para volver a animar:
+- 2 funciones en vez de una sola? que se reutilizan Piensalo
