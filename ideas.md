@@ -2,4 +2,7 @@
 - Corregir animaciones en switch tasks
 - Guardar en cache seleccion de lenguaje
 - Guardar en cache Seleccion de temporizador
+- Guardar en cache el visualizador de info inicial
+  - Agregar cehckbox de (no recordar nuevamente)
 - Notificacion de tarea terminada?
+- revisar la forma en la que se autoselecciona el campo para una nueva tarea (tiene que hacerse despacio y el teclado virtual del celular no debe tapar el textfield)
