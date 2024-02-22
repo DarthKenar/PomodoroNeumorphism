@@ -92,7 +92,6 @@ function tasksListObjectRemove(id) {
     indexID = tasksListObject.id.indexOf(id)
     delete(tasksListObject.id[indexID])
     delete(tasksListObject.task[indexID])
-    refreshTasks();
     updateLocalStorage();
     console.log(`Se ha eliminado el elemento ${id}`)
     console.log(JSON.parse(localStorage.getItem("tasksListObject")))
