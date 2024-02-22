@@ -1,24 +1,24 @@
 //modal
-var lenguageModal = document.getElementById('lenguageModal');
-var customizeModal = document.getElementById("customizeModal")
+// let lenguageModal = document.getElementById('lenguageModal');
+// let customizeModal = document.getElementById("customizeModal")
 
-//lenguage buttons (display modal)
-var lenguageButtonOpen = document.getElementById("lenguageButtonOpen")
-var lenguageButtonClose = document.getElementById("lenguageButtonClose")
+// //lenguage buttons (display modal)
+// let lenguageButtonOpen = document.getElementById("lenguageButtonOpen")
+let lenguageButtonClose = document.getElementById("lenguageButtonClose")
 
-//Type Time (work/rest)
-var workTime = document.getElementById("workTime")
-var restTime = document.getElementById("restTime")
+// //Type Time (work/rest)
+// let workTime = document.getElementById("workTime")
+// let restTime = document.getElementById("restTime")
 
 // Clock start/stop buttons
-var startButton = document.getElementById("startButton")
-var stopButton = document.getElementById("stopButton")
+// let startButton = document.getElementById("startButton")
+// let stopButton = document.getElementById("stopButton")
 
-//lenguage buttons
-var esBtn = document.getElementById('esBtn')
-var enBtn = document.getElementById('enBtn')
-var brBtn = document.getElementById('brBtn')
-var jpBtn = document.getElementById('jpBtn')
+// //lenguage buttons
+// let esBtn = document.getElementById('esBtn')
+// let enBtn = document.getElementById('enBtn')
+// let brBtn = document.getElementById('brBtn')
+// let jpBtn = document.getElementById('jpBtn')
 
 //Boton guardar
 newTaskButton = document.getElementById("newTaskButton")
@@ -31,29 +31,29 @@ coffeeIcon = '<svg id="footerIcon" xmlns="http://www.w3.org/2000/svg" width="24"
 // Textos para traducir
 
 //Títulos de seleccion de lenguaje
-var esLabel = document.getElementById('esLabel')
-var enLabel = document.getElementById('enLabel')
+let esLabel = document.getElementById('esLabel')
+let enLabel = document.getElementById('enLabel')
 
 //Títulos de pagina y cuerpo de html
-var title1 = document.getElementById('title1')
-var title2 = document.getElementById('title2')
+let title1 = document.getElementById('title1')
+let title2 = document.getElementById('title2')
 
 //Opciones del temporizador (texto)
-var clockOption1 = document.getElementById('clockOption1')
-var clockOption2 = document.getElementById('clockOption2')
-var clockOption3 = document.getElementById('clockOption3')
-var clockOption4 = document.getElementById('clockOption4')
+let clockOption1 = document.getElementById('clockOption1')
+let clockOption2 = document.getElementById('clockOption2')
+let clockOption3 = document.getElementById('clockOption3')
+let clockOption4 = document.getElementById('clockOption4')
 
 // Título de la seccion tareas (tasks)
-var tasksLabel = document.getElementById("tasksLabel")
+let tasksLabel = document.getElementById("tasksLabel")
 
 //Navbar textos
-var customizeLabel = document.getElementById("customizeLabel")
-var restartSessionLabel = document.getElementById("restartSessionLabel")
-var lenguageLabel = document.getElementById("lenguageLabel")
+let customizeLabel = document.getElementById("customizeLabel")
+let restartSessionLabel = document.getElementById("restartSessionLabel")
+let lenguageLabel = document.getElementById("lenguageLabel")
 
 //newTask texto de invitacion (escribe aqui...)
-var newTask = document.getElementById("newTask")
+// let newTask = document.getElementById("newTask")
 
 //for close any modals
 window.onclick = function(event) {
@@ -79,7 +79,7 @@ lenguageButtonOpen.addEventListener('click',lenguageOpen);
 lenguageButtonClose.addEventListener('click',lenguageClose);
 
 //Transformar esto en un objeto de tipo diccionario con clave valor en donde el valor de la clave se añade al newTask.textContent de cada lenguaje
-var newTaskPlaceHolders = ["","Escribe aquí...","Write here...","Escreva aqui...","ここに書いてください..."]
+let newTaskPlaceHolders = ["","Escribe aquí...","Write here...","Escreva aqui...","ここに書いてください..."]
 // Spanish
 function spanishLenguageSelected(){
     console.log("Switched to Spanish")

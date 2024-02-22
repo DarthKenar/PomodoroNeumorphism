@@ -1,28 +1,28 @@
 //TASKS VARIABLES
-var newTask = document.getElementById("newTask")
-var newTaskButton = document.getElementById("newTaskButton")
+let newTask = document.getElementById("newTask")
+let newTaskButton = document.getElementById("newTaskButton")
 
-var tasks = document.getElementById("tasks")
-var tasksList = tasks.getElementsByTagName("li")
+let tasks = document.getElementById("tasks")
+let tasksList = tasks.getElementsByTagName("li")
 
-var tasksCounter = document.getElementById("tasksCounter")
+let tasksCounter = document.getElementById("tasksCounter")
 
 //lenguages
-var esBtn = document.getElementById('esBtn')
-var enBtn = document.getElementById('enBtn')
-var brBtn = document.getElementById('brBtn')
-var jpBtn = document.getElementById('jpBtn')
+let esBtn = document.getElementById('esBtn')
+let enBtn = document.getElementById('enBtn')
+let brBtn = document.getElementById('brBtn')
+let jpBtn = document.getElementById('jpBtn')
 
 //clock options
-var clockOption1Button = document.getElementById('clockOption1Button')
-var clockOption2Button = document.getElementById('clockOption2Button')
-var clockOption3Button = document.getElementById('clockOption3Button')
-var clockOption4Button = document.getElementById('clockOption4Button')
+let clockOption1Button = document.getElementById('clockOption1Button')
+let clockOption2Button = document.getElementById('clockOption2Button')
+let clockOption3Button = document.getElementById('clockOption3Button')
+let clockOption4Button = document.getElementById('clockOption4Button')
 
-var clockOption1Indicator = document.getElementById('clockOption1Indicator')
-var clockOption2Indicator = document.getElementById('clockOption2Indicator')
-var clockOption3Indicator = document.getElementById('clockOption3Indicator')
-var clockOption4Indicator = document.getElementById('clockOption4Indicator')
+let clockOption1Indicator = document.getElementById('clockOption1Indicator')
+let clockOption2Indicator = document.getElementById('clockOption2Indicator')
+let clockOption3Indicator = document.getElementById('clockOption3Indicator')
+let clockOption4Indicator = document.getElementById('clockOption4Indicator')
 
 if(localStorage.getItem("tasksCounter") !== null){
     tasksCounter.textContent = parseInt(localStorage.getItem("tasksCounter"))
@@ -48,39 +48,39 @@ if (localStorage.getItem("tasksListObject") != null){
     }
 }
 
-var info = document.getElementById("info")
+let info = document.getElementById("info")
 
 //CLOCK VARIABLES:
-var runningTime;
-var clockValueMin = document.getElementById("clockValueMin");
-var clockValueSeg = document.getElementById("clockValueSeg");
-var initialValueMin = clockValueMin.textContent
-var initialValueSeg = clockValueSeg.textContent
-var startButton = document.getElementById("startButton");
-var stopButton = document.getElementById("stopButton")
-var customizeModal = document.getElementById("customizeModal")
-var customizeOptionsList = customizeModal.getElementsByTagName("input")
-var customizeButtonClose = document.getElementById("customizeButtonClose")
-var footer = document.getElementsByTagName("footer")[0]
-var customizeButtonOpen = document.getElementById("customizeButtonOpen")
-var restartSessionButton = document.getElementById("restartSessionButton")
-var lenguageButtonOpen = document.getElementById("lenguageButtonOpen")
-var taskTitle = document.getElementById("taskTitle")
-var taskContainer = document.getElementById("taskContainer")
-var lenguageModalContent = document.getElementById("lenguageModalContent")
-var customizeModalContent = document.getElementById("customizeModalContent")
-var restartSessionModal = document.getElementById("restartSessionModal")
-var restartSessionModalContent = document.getElementById("restartSessionModalContent")
-var title = document.getElementById("title2")
-var customizeModal = document.getElementById("lenguageModal")
-var workTime = document.getElementById("workTime")
-var restTime = document.getElementById("restTime")
-var initialValueMinRest = "05"
-var initialValueSegRest = "00"
-var body = document.getElementById("body")
-var clock = document.getElementById("clock")
-var restartSessionButtonYes = document.getElementById("restartSessionButtonYes")
-var restartSessionButtonNo = document.getElementById("restartSessionButtonNo")
+let runningTime;
+let clockValueMin = document.getElementById("clockValueMin");
+let clockValueSeg = document.getElementById("clockValueSeg");
+let initialValueMin = clockValueMin.textContent
+let initialValueSeg = clockValueSeg.textContent
+let startButton = document.getElementById("startButton");
+let stopButton = document.getElementById("stopButton")
+let customizeModal = document.getElementById("customizeModal")
+let customizeOptionsList = customizeModal.getElementsByTagName("input")
+let customizeButtonClose = document.getElementById("customizeButtonClose")
+let footer = document.getElementsByTagName("footer")[0]
+let customizeButtonOpen = document.getElementById("customizeButtonOpen")
+let restartSessionButton = document.getElementById("restartSessionButton")
+let lenguageButtonOpen = document.getElementById("lenguageButtonOpen")
+let taskTitle = document.getElementById("taskTitle")
+let taskContainer = document.getElementById("taskContainer")
+let lenguageModalContent = document.getElementById("lenguageModalContent")
+let customizeModalContent = document.getElementById("customizeModalContent")
+let restartSessionModal = document.getElementById("restartSessionModal")
+let restartSessionModalContent = document.getElementById("restartSessionModalContent")
+let title = document.getElementById("title2")
+let lenguageModal = document.getElementById("lenguageModal")
+let workTime = document.getElementById("workTime")
+let restTime = document.getElementById("restTime")
+let initialValueMinRest = "05"
+let initialValueSegRest = "00"
+let body = document.getElementById("body")
+let clock = document.getElementById("clock")
+let restartSessionButtonYes = document.getElementById("restartSessionButtonYes")
+let restartSessionButtonNo = document.getElementById("restartSessionButtonNo")
 
 function tasksListObjectAdd(id, tarea) {
     tasksListObject.id.push(id);
@@ -270,12 +270,12 @@ function showNotification() {
       alert("Este navegador no soporta notificaciones");
     } else if (Notification.permission === "granted") {
       // Si la permisión está concedida, mostrar la notificación
-      var notificacion = new Notification("¡Es hora de relajarse!");
+      let notificacion = new Notification("¡Es hora de relajarse!");
     } else if (Notification.permission !== "denied") {
       // Si no se ha solicitado permisión, solicitarla
       Notification.requestPermission().then(function (permission) {
         if (permission === "granted") {
-          var notificacion = new Notification("¡Permiso concedido!");
+          let notificacion = new Notification("¡Permiso concedido!");
         }
       });
     }
@@ -455,10 +455,10 @@ function focusInTextAtTheEnd(elemento) {
 
     // Verificar si el elemento tiene texto
     if (elemento.childNodes.length > 0) {
-        var ultimoNodo = elemento.childNodes[elemento.childNodes.length - 1];
+        let ultimoNodo = elemento.childNodes[elemento.childNodes.length - 1];
 
         // Crear un nuevo rango de selección
-        var rango = document.createRange();
+        let rango = document.createRange();
 
         // Seleccionar el nodo de texto dentro del elemento
         rango.selectNodeContents(ultimoNodo);
@@ -467,7 +467,7 @@ function focusInTextAtTheEnd(elemento) {
         rango.collapse(false);
 
         // Crear una nueva selección y aplicarla al documento
-        var seleccion = window.getSelection();
+        let seleccion = window.getSelection();
         seleccion.removeAllRanges();
         seleccion.addRange(rango);
     };
@@ -624,15 +624,16 @@ function upTask(id){
         console.log("Se intercambiaron correctamente")
         console.log("switchTask")
 
-        taskAnimation(indexID,"vanishSwitchTaskFromBelow", "appearSwitchTaskFromBelow")
-        taskAnimation(indexID-1,"vanishSwitchTaskFromAbove", "appearSwitchTaskFromAbove")
+        vanishTaskAnimation(indexID, "vanishSwitchTaskFromBelow", indexID-1, "vanishSwitchTaskFromAbove")
         setTimeout(() => {
             tasks.insertBefore(tasksList[indexID + 1], tasksList[indexID - 1 + 1]);
+            appearTaskAnimation(indexID, "appearSwitchTaskFromAbove", indexID-1, "appearSwitchTaskFromBelow")
         }, 500);
+
     }else{
         //Agrego animacion para cuando el indice esta al principio
         console.log("animacion")
-        taskAnimationSimple(indexID,"cantdown")
+        simpleTaskAnimation(indexID,"cantdown")
     }
 }
 function downTask(id){
@@ -653,43 +654,62 @@ function downTask(id){
         //Intercambiamos los elementos en el DOM ejecutando las animaciones correspondientes
         console.log("Se intercambiaron correctamente")
         console.log("switchTask")
-        taskAnimation(indexID,"vanishSwitchTaskFromAbove", "appearSwitchTaskFromAbove")
-        taskAnimation(indexID+1,"vanishSwitchTaskFromBelow","appearSwitchTaskFromBelow")
+
+        vanishTaskAnimation(indexID, "vanishSwitchTaskFromAbove", indexID+1, "vanishSwitchTaskFromBelow")
         setTimeout(() => {
             tasks.insertBefore(tasksList[indexID + 1 + 1], tasksList[indexID + 1]);
+            appearTaskAnimation(indexID, "appearSwitchTaskFromBelow", indexID+1, "appearSwitchTaskFromAbove")
         }, 500);
 
     }else{
         //Agrego animacion para cuando el indice esta al principio
         console.log("animacion")
-        taskAnimationSimple(indexID,"cantdown")
+        simpleTaskAnimation(indexID,"cantdown")
     }
 }
-function taskAnimation(indexID, startAnimation, endAnimation){
-    let upTaskButton = document.getElementById(`upTaskButton-${indexID}`)
-    let downTaskButton = document.getElementById(`downTaskButton-${indexID}`)
-    upTaskButton.disabled = true;
-    downTaskButton.disabled = true;
-    console.log(indexID)
-    tasksList[indexID+1].classList.add(`${startAnimation}`);
-    setTimeout(() => {
-        tasksList[indexID+1].classList.remove(`${startAnimation}`);
-        console.log(indexID)
-        //cambiar posicion de tareas
-        setTimeout(() => {
-            tasksList[indexID+1].classList.add(`${endAnimation}`);
-            upTaskButton.disabled = false;
-            downTaskButton.disabled = false;
-            console.log(indexID)
-            tasksList[indexID+1].classList.remove(`${endAnimation}`);
-        }, 500);
-    }, 500);
 
-    console.log(indexID)
+function vanishTaskAnimation(mainIndexID, mainVanishAnimation, minorIndexID, minorVanishAnimation){
     
+    let mainUpTaskButton = document.getElementById(`upTaskButton-${mainIndexID}`)
+    let mainDownTaskButton = document.getElementById(`downTaskButton-${mainIndexID}`)
+    let minorUpTaskButton = document.getElementById(`upTaskButton-${minorIndexID}`)
+    let minorDownTaskButton = document.getElementById(`downTaskButton-${minorIndexID}`)
+
+    mainUpTaskButton.disabled = true;
+    mainDownTaskButton.disabled = true;
+    minorUpTaskButton.disabled = true;
+    minorDownTaskButton.disabled = true;
+
+    tasksList[mainIndexID+1].classList.add(`${mainVanishAnimation}`);
+    tasksList[minorIndexID+1].classList.add(`${minorVanishAnimation}`);
+
+    setTimeout(() => {
+        tasksList[mainIndexID+1].classList.remove(`${mainVanishAnimation}`);
+        tasksList[minorIndexID+1].classList.remove(`${minorVanishAnimation}`);
+    }, 500);
 }
 
-function taskAnimationSimple(indexID, animation){
+function appearTaskAnimation(mainIndexID, mainAppearAnimation, minorIndexID, minorAppearAnimation){
+    
+    let mainUpTaskButton = document.getElementById(`upTaskButton-${mainIndexID}`)
+    let mainDownTaskButton = document.getElementById(`downTaskButton-${mainIndexID}`)
+    let minorUpTaskButton = document.getElementById(`upTaskButton-${minorIndexID}`)
+    let minorDownTaskButton = document.getElementById(`downTaskButton-${minorIndexID}`)
+    tasksList[mainIndexID+1].classList.add(`${mainAppearAnimation}`);
+    tasksList[minorIndexID+1].classList.add(`${minorAppearAnimation}`);
+    setTimeout(() => {
+        tasksList[mainIndexID+1].classList.remove(`${mainAppearAnimation}`);
+        tasksList[minorIndexID+1].classList.remove(`${minorAppearAnimation}`);
+        setTimeout(() => {
+            mainUpTaskButton.disabled = false;
+            mainDownTaskButton.disabled = false;
+            minorUpTaskButton.disabled = false;
+            minorDownTaskButton.disabled = false;
+        }, 100);
+    }, 500);
+}
+
+function simpleTaskAnimation(indexID, animation){
     let upTaskButton = document.getElementById(`upTaskButton-${indexID}`)
     let downTaskButton = document.getElementById(`downTaskButton-${indexID}`)
     upTaskButton.disabled = true;
