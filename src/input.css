@@ -596,23 +596,23 @@ main section header #workTime {
 }
 
 .vanishSwitchTaskFromBelow {
-    animation: vanishFromBelow 0.5s ease-in forwards;
+    animation: vanishFromBelow 0.1s ease-in forwards;
 }
 
 .appearSwitchTaskFromBelow {
-    animation: appearFromBelow 0.5s ease-out forwards;
+    animation: appearFromBelow 0.1s ease-out forwards;
 }
   
 .vanishSwitchTaskFromAbove {
-    animation: vanishFromAbove 0.5s ease-in forwards;
+    animation: vanishFromAbove 0.1s ease-in forwards;
 }
 
 .appearSwitchTaskFromAbove {
-    animation: appearFromAbove 0.5s ease-out forwards;
+    animation: appearFromAbove 0.1s ease-out forwards;
 }
   
 .cantup {
-    animation: cantup 0.5s ease-in-out;
+    animation: cantup 0.1s ease-in-out;
 }
 
 @keyframes cantup {

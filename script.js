@@ -1,3 +1,5 @@
+var animationFlag = false;
+
 //TASKS VARIABLES
 let newTask = document.getElementById("newTask")
 let newTaskButton = document.getElementById("newTaskButton")
@@ -622,13 +624,18 @@ function upTask(id){
         
         console.log("Se intercambiaron correctamente")
         console.log("switchTask")
-
-        vanishTaskAnimation(indexID, "vanishSwitchTaskFromBelow", indexID-1, "vanishSwitchTaskFromAbove")
-        setTimeout(() => {
-            tasks.insertBefore(tasksList[indexID + 1], tasksList[indexID - 1 + 1]);
-            appearTaskAnimation(indexID, "appearSwitchTaskFromAbove", indexID-1, "appearSwitchTaskFromBelow")
-        }, 500);
-
+        if (animationFlag == false){
+            animationFlag = true;
+            vanishTaskAnimation(indexID, "vanishSwitchTaskFromBelow", indexID-1, "vanishSwitchTaskFromAbove")
+            setTimeout(() => {
+                tasks.insertBefore(tasksList[indexID + 1], tasksList[indexID - 1 + 1]);
+                appearTaskAnimation(indexID, "appearSwitchTaskFromAbove", indexID-1, "appearSwitchTaskFromBelow")
+            }, 100);
+            setTimeout(() => {
+                animationFlag = false;
+            }, 300);
+        }
+        
     }else{
         //Agrego animacion para cuando el indice esta al principio
         console.log("animacion")
@@ -644,21 +651,25 @@ function downTask(id){
     console.log("tasksListObject.id.length",tasksListObject.id.length)
 
     if(indexID < tasksListObject.id.length-1){
-        //movemos el indice en la lista de objetos
-        [tasksListObject.id[indexID], tasksListObject.id[indexID + 1] ] = [tasksListObject.id[indexID + 1], tasksListObject.id[indexID]];
-        console.log("IDs", tasksListObject.id)
-        //Actualizamos el local storage
-        updateLocalStorage()
-
-        //Intercambiamos los elementos en el DOM ejecutando las animaciones correspondientes
-        console.log("Se intercambiaron correctamente")
-        console.log("switchTask")
-
-        vanishTaskAnimation(indexID, "vanishSwitchTaskFromAbove", indexID+1, "vanishSwitchTaskFromBelow")
-        setTimeout(() => {
-            tasks.insertBefore(tasksList[indexID + 1 + 1], tasksList[indexID + 1]);
-            appearTaskAnimation(indexID, "appearSwitchTaskFromBelow", indexID+1, "appearSwitchTaskFromAbove")
-        }, 500);
+        if (animationFlag == false){
+            animationFlag = true;
+            //movemos el indice en la lista de objetos
+            [tasksListObject.id[indexID], tasksListObject.id[indexID + 1] ] = [tasksListObject.id[indexID + 1], tasksListObject.id[indexID]];
+            console.log("IDs", tasksListObject.id)
+            //Actualizamos el local storage
+            updateLocalStorage()
+            //Intercambiamos los elementos en el DOM ejecutando las animaciones correspondientes
+            console.log("Se intercambiaron correctamente")
+            console.log("switchTask")
+            vanishTaskAnimation(indexID, "vanishSwitchTaskFromAbove", indexID+1, "vanishSwitchTaskFromBelow")
+            setTimeout(() => {
+                tasks.insertBefore(tasksList[indexID + 1 + 1], tasksList[indexID + 1]);
+                appearTaskAnimation(indexID, "appearSwitchTaskFromBelow", indexID+1, "appearSwitchTaskFromAbove")
+            }, 100);
+            setTimeout(() => {
+                animationFlag = false;
+            }, 100);
+        }
 
     }else{
         //Agrego animacion para cuando el indice esta al principio
@@ -685,7 +696,7 @@ function vanishTaskAnimation(mainIndexID, mainVanishAnimation, minorIndexID, min
     setTimeout(() => {
         tasksList[mainIndexID+1].classList.remove(`${mainVanishAnimation}`);
         tasksList[minorIndexID+1].classList.remove(`${minorVanishAnimation}`);
-    }, 500);
+    }, 100);
 }
 
 function appearTaskAnimation(mainIndexID, mainAppearAnimation, minorIndexID, minorAppearAnimation){
@@ -705,20 +716,28 @@ function appearTaskAnimation(mainIndexID, mainAppearAnimation, minorIndexID, min
             minorUpTaskButton.disabled = false;
             minorDownTaskButton.disabled = false;
         }, 100);
-    }, 500);
+    }, 100);
 }
 
 function simpleTaskAnimation(indexID, animation){
-    let upTaskButton = document.getElementById(`upTaskButton-${indexID}`)
-    let downTaskButton = document.getElementById(`downTaskButton-${indexID}`)
-    upTaskButton.disabled = true;
-    downTaskButton.disabled = true;
-    tasksList[indexID+1].classList.add(`${animation}`);
-    setTimeout(() => {
-        tasksList[indexID+1].classList.remove(`${animation}`);
-        upTaskButton.disabled = false;
-        downTaskButton.disabled = false;
-    }, 500);
+    
+    if(animationFlag == false){
+        animationFlag = true
+        let upTaskButton = document.getElementById(`upTaskButton-${indexID}`)
+        let downTaskButton = document.getElementById(`downTaskButton-${indexID}`)
+        upTaskButton.disabled = true;
+        downTaskButton.disabled = true;
+        tasksList[indexID+1].classList.add(`${animation}`);
+        setTimeout(() => {
+            tasksList[indexID+1].classList.remove(`${animation}`);
+            upTaskButton.disabled = false;
+            downTaskButton.disabled = false;
+            setTimeout(() => {
+                animationFlag = false
+            }, 100);
+        }, 100);
+    }
+
 }
 initialPaint();
 
