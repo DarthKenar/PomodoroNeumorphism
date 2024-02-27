@@ -609,70 +609,45 @@ function infoClose(){
 
 function upTask(id){
     console.log("upTask()")
-    //primero busco el indice
     indexID = tasksListObject.id.indexOf(id)
-    console.log("indexID", indexID)
     if(indexID > 0){
-        //movemos el indice en la lista de objetos
-        [tasksListObject.id[indexID - 1], tasksListObject.id[indexID]] = [tasksListObject.id[indexID], tasksListObject.id[indexID - 1]];
-        console.log("IDs", tasksListObject.id)
-        //Actualizamos el local storage
-        updateLocalStorage()
-        //Intercambiamos los elementos en el DOM
-        
-        console.log("Se intercambiaron correctamente")
-        console.log("switchTask")
-
-        vanishTaskAnimation(indexID, "vanishSwitchTaskFromBelow", indexID-1, "vanishSwitchTaskFromAbove")
+        let idReplaced = tasksListObject.id[indexID - 1]
+        vanishTaskAnimation(indexID, id, "vanishSwitchTaskFromBelow", indexID-1, idReplaced, "vanishSwitchTaskFromAbove")
         setTimeout(() => {
+            [tasksListObject.id[indexID - 1], tasksListObject.id[indexID]] = [tasksListObject.id[indexID], tasksListObject.id[indexID - 1]];
+            updateLocalStorage()
             tasks.insertBefore(tasksList[indexID + 1], tasksList[indexID - 1 + 1]);
-            appearTaskAnimation(indexID, "appearSwitchTaskFromAbove", indexID-1, "appearSwitchTaskFromBelow")
+            appearTaskAnimation(indexID, id, "appearSwitchTaskFromAbove", indexID-1, idReplaced, "appearSwitchTaskFromBelow")
         }, 500);
-
     }else{
-        //Agrego animacion para cuando el indice esta al principio
-        console.log("animacion")
-        simpleTaskAnimation(indexID,"cantdown")
+        console.log("cantup")
+        simpleTaskAnimation(indexID,"cantup",id)
     }
 }
 function downTask(id){
     console.log("downTask()")
-    
-    //primero busco el indice
     indexID = tasksListObject.id.indexOf(id)
-    console.log("indexID", indexID)
-    console.log("tasksListObject.id.length",tasksListObject.id.length)
-
     if(indexID < tasksListObject.id.length-1){
-        //movemos el indice en la lista de objetos
-        [tasksListObject.id[indexID], tasksListObject.id[indexID + 1] ] = [tasksListObject.id[indexID + 1], tasksListObject.id[indexID]];
-        console.log("IDs", tasksListObject.id)
-        //Actualizamos el local storage
-        updateLocalStorage()
-
-        //Intercambiamos los elementos en el DOM ejecutando las animaciones correspondientes
-        console.log("Se intercambiaron correctamente")
-        console.log("switchTask")
-
-        vanishTaskAnimation(indexID, "vanishSwitchTaskFromAbove", indexID+1, "vanishSwitchTaskFromBelow")
+        let idReplaced = tasksListObject.id[indexID + 1]
+        vanishTaskAnimation(indexID, id, "vanishSwitchTaskFromAbove", indexID+1, idReplaced, "vanishSwitchTaskFromBelow")
         setTimeout(() => {
+            [tasksListObject.id[indexID], tasksListObject.id[indexID + 1] ] = [tasksListObject.id[indexID + 1], tasksListObject.id[indexID]];
+            updateLocalStorage()
             tasks.insertBefore(tasksList[indexID + 1 + 1], tasksList[indexID + 1]);
-            appearTaskAnimation(indexID, "appearSwitchTaskFromBelow", indexID+1, "appearSwitchTaskFromAbove")
+            appearTaskAnimation(indexID, id, "appearSwitchTaskFromBelow", indexID+1, idReplaced, "appearSwitchTaskFromAbove")
         }, 500);
-
     }else{
-        //Agrego animacion para cuando el indice esta al principio
-        console.log("animacion")
-        simpleTaskAnimation(indexID,"cantdown")
+        console.log("cantdown")
+        simpleTaskAnimation(indexID,"cantdown", id)
     }
 }
 
-function vanishTaskAnimation(mainIndexID, mainVanishAnimation, minorIndexID, minorVanishAnimation){
+function vanishTaskAnimation(mainIndexID, mainID, mainVanishAnimation, minorIndexID, minorID, minorVanishAnimation){
     
-    let mainUpTaskButton = document.getElementById(`upTaskButton-${mainIndexID}`)
-    let mainDownTaskButton = document.getElementById(`downTaskButton-${mainIndexID}`)
-    let minorUpTaskButton = document.getElementById(`upTaskButton-${minorIndexID}`)
-    let minorDownTaskButton = document.getElementById(`downTaskButton-${minorIndexID}`)
+    let mainUpTaskButton = document.getElementById(`upTaskButton-${mainID}`)
+    let mainDownTaskButton = document.getElementById(`downTaskButton-${mainID}`)
+    let minorUpTaskButton = document.getElementById(`upTaskButton-${minorID}`)
+    let minorDownTaskButton = document.getElementById(`downTaskButton-${minorID}`)
 
     mainUpTaskButton.disabled = true;
     mainDownTaskButton.disabled = true;
@@ -688,12 +663,12 @@ function vanishTaskAnimation(mainIndexID, mainVanishAnimation, minorIndexID, min
     }, 500);
 }
 
-function appearTaskAnimation(mainIndexID, mainAppearAnimation, minorIndexID, minorAppearAnimation){
+function appearTaskAnimation(mainIndexID, mainID, mainAppearAnimation, minorIndexID, minorID, minorAppearAnimation){
     
-    let mainUpTaskButton = document.getElementById(`upTaskButton-${mainIndexID}`)
-    let mainDownTaskButton = document.getElementById(`downTaskButton-${mainIndexID}`)
-    let minorUpTaskButton = document.getElementById(`upTaskButton-${minorIndexID}`)
-    let minorDownTaskButton = document.getElementById(`downTaskButton-${minorIndexID}`)
+    let mainUpTaskButton = document.getElementById(`upTaskButton-${mainID}`)
+    let mainDownTaskButton = document.getElementById(`downTaskButton-${mainID}`)
+    let minorUpTaskButton = document.getElementById(`upTaskButton-${minorID}`)
+    let minorDownTaskButton = document.getElementById(`downTaskButton-${minorID}`)
     tasksList[mainIndexID+1].classList.add(`${mainAppearAnimation}`);
     tasksList[minorIndexID+1].classList.add(`${minorAppearAnimation}`);
     setTimeout(() => {
@@ -708,9 +683,9 @@ function appearTaskAnimation(mainIndexID, mainAppearAnimation, minorIndexID, min
     }, 500);
 }
 
-function simpleTaskAnimation(indexID, animation){
-    let upTaskButton = document.getElementById(`upTaskButton-${indexID}`)
-    let downTaskButton = document.getElementById(`downTaskButton-${indexID}`)
+function simpleTaskAnimation(indexID, animation, id){
+    let upTaskButton = document.getElementById(`upTaskButton-${id}`)
+    let downTaskButton = document.getElementById(`downTaskButton-${id}`)
     upTaskButton.disabled = true;
     downTaskButton.disabled = true;
     tasksList[indexID+1].classList.add(`${animation}`);
