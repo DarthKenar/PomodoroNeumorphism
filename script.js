@@ -1,5 +1,3 @@
-var animationFlag = false;
-
 //TASKS VARIABLES
 let newTask = document.getElementById("newTask")
 let newTaskButton = document.getElementById("newTaskButton")
@@ -662,7 +660,7 @@ function vanishTaskAnimation(mainIndexID, mainID, mainVanishAnimation, minorInde
     setTimeout(() => {
         tasksList[mainIndexID+1].classList.remove(`${mainVanishAnimation}`);
         tasksList[minorIndexID+1].classList.remove(`${minorVanishAnimation}`);
-    }, 100);
+    }, 500);
 }
 
 function appearTaskAnimation(mainIndexID, mainID, mainAppearAnimation, minorIndexID, minorID, minorAppearAnimation){
@@ -682,7 +680,7 @@ function appearTaskAnimation(mainIndexID, mainID, mainAppearAnimation, minorInde
             minorUpTaskButton.disabled = false;
             minorDownTaskButton.disabled = false;
         }, 100);
-    }, 100);
+    }, 500);
 }
 
 function simpleTaskAnimation(indexID, animation, id){
