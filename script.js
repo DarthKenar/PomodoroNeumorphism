@@ -121,7 +121,7 @@ function initialPaint(){
 }
 
 function playAlarm() {
-    let alarm = new Audio("./alarma.mp3");
+    let alarm = new Audio("./res/alarma.mp3");
     alarm.play();
 }
 
