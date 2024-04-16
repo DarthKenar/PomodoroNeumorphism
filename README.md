@@ -1,5 +1,5 @@
 # POMODORO TIMER NEUMORFISTA
-Aplicación web. Temporizador Pomodoro para mantener la concentración y organizar tus tareas.
+Aplicación web. Temporizador Pomodoro para mantener la concentración, organizar tus tareas y aumentar la productividad.
 
 ![Pomodoro Image Example](./doc/images/pomodoroneumorphism3.webp)
 
